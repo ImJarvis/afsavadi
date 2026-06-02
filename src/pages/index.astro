@@ -1,0 +1,360 @@
+---
+import Layout from '../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+let achievementImages = [];
+try {
+  const achievementsDir = path.join(process.cwd(), 'public/Achivements/Achievements_25');
+  const files1 = fs.readdirSync(achievementsDir).filter(f => f.match(/\.(jpg|jpeg|png)$/i));
+  achievementImages.push(...files1.map(f => `/Achivements/Achievements_25/${f}`));
+} catch (e) {
+  console.error(e);
+}
+try {
+  const awardsDir = path.join(process.cwd(), 'public/images/Awards_2026');
+  const files2 = fs.readdirSync(awardsDir).filter(f => f.match(/\.(jpg|jpeg|png)$/i));
+  achievementImages.push(...files2.map(f => `/images/Awards_2026/${f}`));
+} catch (e) {
+  console.error(e);
+}
+
+let galleryImages = [];
+try {
+  const galleryDir = path.join(process.cwd(), 'public/Gallery/Gallery_2026');
+  const files = fs.readdirSync(galleryDir).filter(f => f.match(/\.(jpg|jpeg|png)$/i)).slice(0, 6);
+  galleryImages = files.map(f => `/Gallery/Gallery_2026/${f}`);
+} catch (e) {
+  console.error(e);
+}
+---
+
+<Layout title="Home">
+  {/* Hero Carousel Section */}
+  <section class="relative w-full h-[60vh] md:h-[75vh] bg-gray-900 overflow-hidden" id="hero-carousel">
+    <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000 z-10">
+      <img src="/images/HonepageFirstphoto.jpg" alt="Air Force School Campus" class="w-full h-full object-cover opacity-90" />
+    </div>
+    <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 z-0">
+      <img src="/images/Header1.jpg" alt="Air Force School Event" class="w-full h-full object-cover opacity-90 object-top" />
+    </div>
+    <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 z-0">
+      <img src="/Infrastructure/Infra25/School Building/1.jpg" onerror="this.src='/images/HonepageFirstphoto.jpg'" alt="Infrastructure" class="w-full h-full object-cover opacity-90" />
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/40 to-transparent z-20"></div>
+    <div class="absolute bottom-0 left-0 w-full p-6 md:p-12 text-white z-30">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-extrabold uppercase tracking-wide text-shadow-lg mb-2">Welcome to <span class="text-secondary">Air Force School</span> Avadi</h2>
+        <p class="text-lg md:text-xl font-medium max-w-2xl drop-shadow-md">Nurturing young minds with discipline, dedication, and excellence since our inception.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll('.carousel-slide');
+      if(slides.length === 0) return;
+      let current = 0;
+      setInterval(() => {
+        slides[current].classList.remove('opacity-100', 'z-10');
+        slides[current].classList.add('opacity-0', 'z-0');
+        current = (current + 1) % slides.length;
+        slides[current].classList.remove('opacity-0', 'z-0');
+        slides[current].classList.add('opacity-100', 'z-10');
+      }, 5000);
+    });
+  </script>
+
+  {/* Announcements Ticker */}
+  <div class="bg-secondary text-primary font-bold py-2 px-4 shadow-md flex items-center border-y-2 border-primary">
+    <div class="whitespace-nowrap mr-4 uppercase shrink-0 flex items-center">
+      <span class="w-3 h-3 bg-red-600 rounded-full animate-pulse mr-2"></span>
+      Latest News
+    </div>
+    <div class="overflow-hidden relative w-full">
+      <div class="inline-block whitespace-nowrap animate-marquee">
+        <span class="mx-4 text-green-800">• Admission for Academic Year 2025-26 is now OPEN. Download the application form.</span>
+        <span class="mx-4 text-blue-800">• Class X and XII CBSE Results 2024-25 declared. Congratulations to all toppers!</span>
+        <span class="mx-4 text-red-800">• Fee payment through SBI Collect is active.</span>
+        <span class="mx-4 text-primary">• Mandatory disclosure is available in the about us section.</span>
+        <span class="mx-4 text-green-800">• Admission for Academic Year 2025-26 is now OPEN. Download the application form.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+    
+    {/* Vision & Mission Cards */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-lg shadow-md border-t-4 border-primary p-8 hover:shadow-lg transition-shadow">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-blue-100 text-primary rounded-full flex items-center justify-center mr-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          </div>
+          <h2 class="text-2xl font-bold text-primary uppercase">Our Vision</h2>
+        </div>
+        <p class="text-gray-600 leading-relaxed text-justify">
+          To be the premier educational institution that cultivates intellectual curiosity, personal growth, and ethical leadership, empowering students to soar high in all endeavors of life.
+        </p>
+      </div>
+      <div class="bg-white rounded-lg shadow-md border-t-4 border-secondary p-8 hover:shadow-lg transition-shadow">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-yellow-100 text-secondary rounded-full flex items-center justify-center mr-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h2 class="text-2xl font-bold text-primary uppercase">Our Mission</h2>
+        </div>
+        <p class="text-gray-600 leading-relaxed text-justify">
+          To provide quality education in a disciplined and nurturing environment, instilling core values of integrity and patriotism while preparing students for the dynamic challenges of the modern world.
+        </p>
+      </div>
+    </div>
+
+    {/* Leadership Grid & Notice Board */}
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      {/* Leadership Grid */}
+      <div class="lg:col-span-2">
+        <h2 class="text-3xl font-bold text-primary mb-8 border-b-2 border-secondary pb-2 uppercase inline-block">Our Leadership</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Chairman */}
+          <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col hover:shadow-lg transition-shadow">
+            <div class="h-32 bg-primary-dark flex items-center justify-center border-b-4 border-secondary">
+               <svg class="w-16 h-16 text-white/20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="p-4 text-center flex-grow flex flex-col">
+              <h3 class="font-bold text-primary text-lg">Air Cmde Pradeep Sharma VSM</h3>
+              <p class="text-xs text-secondary font-bold uppercase tracking-wider mb-3">Chairman</p>
+              <p class="text-sm text-gray-500 italic mt-auto border-t pt-3">"Committed to excellence in education for the nation's future."</p>
+            </div>
+          </div>
+          {/* Executive Director */}
+          <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col hover:shadow-lg transition-shadow">
+            <div class="h-32 bg-primary flex items-center justify-center border-b-4 border-secondary">
+               <svg class="w-16 h-16 text-white/20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="p-4 text-center flex-grow flex flex-col">
+              <h3 class="font-bold text-primary text-lg">Flt Lt Akshaya Sree NR</h3>
+              <p class="text-xs text-secondary font-bold uppercase tracking-wider mb-3">Executive Director</p>
+              <p class="text-sm text-gray-500 italic mt-auto border-t pt-3">"Fostering a culture of discipline and holistic development."</p>
+            </div>
+          </div>
+          {/* Principal */}
+          <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col hover:shadow-lg transition-shadow">
+            <div class="h-32 bg-[#0b4e8c] flex items-center justify-center border-b-4 border-secondary">
+               <svg class="w-16 h-16 text-white/20" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="p-4 text-center flex-grow flex flex-col">
+              <h3 class="font-bold text-primary text-lg">Mrs Rakhee Nair</h3>
+              <p class="text-xs text-secondary font-bold uppercase tracking-wider mb-3">Principal</p>
+              <p class="text-sm text-gray-500 italic mt-auto border-t pt-3">"Education is the training of the mind to think."</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Notice Board */}
+      <div class="bg-gray-50 rounded-lg shadow-md border border-gray-200 p-6 flex flex-col">
+        <h2 class="text-xl font-bold text-primary mb-4 border-b-2 border-secondary pb-2 uppercase flex items-center">
+          <svg class="w-5 h-5 mr-2 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path></svg>
+          Notice Board
+        </h2>
+        <div class="flex-grow overflow-y-auto pr-2 space-y-4 max-h-[400px]">
+          <a href="/images/Admission_open.png" target="_blank" class="block bg-white p-3 border-l-4 border-secondary shadow-sm hover:shadow-md transition-shadow group">
+            <p class="text-xs text-gray-500 mb-1 flex items-center">
+              <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              Mar 2025
+            </p>
+            <p class="font-medium text-primary group-hover:text-accent transition-colors">Admission for Academic Year 2025-26 Open</p>
+          </a>
+          <a href="/images/Fee Structure_25-26.jpg" target="_blank" class="block bg-white p-3 border-l-4 border-primary shadow-sm hover:shadow-md transition-shadow group">
+            <p class="text-xs text-gray-500 mb-1 flex items-center">
+              <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              Recent
+            </p>
+            <p class="font-medium text-primary group-hover:text-accent transition-colors">Revised Fee Structure 2025-26</p>
+          </a>
+          <a href="/images/Academic Calender_25.jpg" target="_blank" class="block bg-white p-3 border-l-4 border-primary shadow-sm hover:shadow-md transition-shadow group">
+            <p class="text-xs text-gray-500 mb-1 flex items-center">
+              <svg class="w-3 h-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              Recent
+            </p>
+            <p class="font-medium text-primary group-hover:text-accent transition-colors">Academic Calendar 2025</p>
+          </a>
+        </div>
+        <a href="/admission" class="mt-4 text-center text-sm font-semibold text-primary hover:text-accent border border-primary py-2 rounded transition-colors hover:bg-primary hover:text-white">View All Notices</a>
+      </div>
+    </div>
+
+    {/* Quick Links Section */}
+    <div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="/admission" class="bg-primary hover:bg-primary-dark text-white p-6 rounded-lg shadow-md text-center transition-all transform hover:-translate-y-1 border-b-4 border-secondary">
+          <svg class="w-10 h-10 mx-auto mb-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+          <span class="font-bold uppercase tracking-wider text-sm md:text-base">Admissions</span>
+        </a>
+        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm" target="_blank" class="bg-primary hover:bg-primary-dark text-white p-6 rounded-lg shadow-md text-center transition-all transform hover:-translate-y-1 border-b-4 border-secondary">
+          <svg class="w-10 h-10 mx-auto mb-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          <span class="font-bold uppercase tracking-wider text-sm md:text-base">Pay Fee</span>
+        </a>
+        <a href="/Documents/STUDENT ADMISSION FORM.pdf" target="_blank" class="bg-primary hover:bg-primary-dark text-white p-6 rounded-lg shadow-md text-center transition-all transform hover:-translate-y-1 border-b-4 border-secondary">
+          <svg class="w-10 h-10 mx-auto mb-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          <span class="font-bold uppercase tracking-wider text-sm md:text-base">Downloads</span>
+        </a>
+        <a href="/contact" class="bg-primary hover:bg-primary-dark text-white p-6 rounded-lg shadow-md text-center transition-all transform hover:-translate-y-1 border-b-4 border-secondary">
+          <svg class="w-10 h-10 mx-auto mb-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <span class="font-bold uppercase tracking-wider text-sm md:text-base">Contact Us</span>
+        </a>
+      </div>
+    </div>
+
+    {/* Toppers Showcase */}
+    <div>
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold text-primary uppercase">Academic Excellence</h2>
+        <div class="w-24 h-1 bg-secondary mx-auto mt-2"></div>
+        <p class="text-gray-500 mt-2">Congratulations to our brilliant toppers!</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
+          <div class="bg-primary text-white p-3 text-center font-bold uppercase tracking-wide text-sm">Class XII Toppers</div>
+          <img src="/images/2025_TOPPERS XII.jpg" alt="Class XII Toppers" class="w-full h-auto object-contain bg-gray-100" />
+        </div>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
+          <div class="bg-primary-dark text-white p-3 text-center font-bold uppercase tracking-wide text-sm">Class X Toppers</div>
+          <img src="/images/2025_TOPPERS X.jpg" alt="Class X Toppers" class="w-full h-auto object-contain bg-gray-100" />
+        </div>
+        <div class="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow">
+          <div class="bg-accent text-white p-3 text-center font-bold uppercase tracking-wide text-sm">NEET Achievers</div>
+          <img src="/images/2025_NEET.jpg" onerror="this.src='/images/2025_TOPPERS X.jpg'" alt="NEET Results" class="w-full h-auto object-contain bg-gray-100" />
+        </div>
+      </div>
+    </div>
+
+    {/* Why Choose Us */}
+    <div class="bg-primary-dark rounded-xl p-8 md:p-12 text-white shadow-lg relative overflow-hidden">
+      <div class="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4">
+        <svg width="400" height="400" viewBox="0 0 100 100" fill="currentColor"><circle cx="50" cy="50" r="50"/></svg>
+      </div>
+      <div class="text-center mb-10 relative z-10">
+        <h2 class="text-3xl font-bold uppercase mb-2">Why Choose AFS Avadi?</h2>
+        <div class="w-24 h-1 bg-secondary mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center mb-4 border border-white/20">
+            <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">IAF Managed</h3>
+          <p class="text-white/80 text-sm">Functioning under the aegis of IAF Educational & Cultural Society, ensuring high standards.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center mb-4 border border-white/20">
+            <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">CBSE Affiliated</h3>
+          <p class="text-white/80 text-sm">Strictly following the CBSE curriculum for holistic academic development.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center mb-4 border border-white/20">
+            <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">100% Results</h3>
+          <p class="text-white/80 text-sm">A consistent track record of exceptional academic results in Board exams.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center mb-4 border border-white/20">
+            <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Holistic Growth</h3>
+          <p class="text-white/80 text-sm">Equal focus on academics, sports, and extracurricular activities.</p>
+        </div>
+      </div>
+    </div>
+
+    {/* Achievement Carousel */}
+    {achievementImages.length > 0 && (
+      <div>
+        <div class="text-center mb-6">
+          <h2 class="text-3xl font-bold text-primary uppercase">Our Achievements</h2>
+          <div class="w-24 h-1 bg-secondary mx-auto mt-2"></div>
+        </div>
+        <div class="overflow-hidden relative w-full bg-white py-6 shadow-sm border border-gray-200 rounded-lg">
+          <div class="flex space-x-6 animate-carousel hover:pause-animation px-4">
+            {achievementImages.concat(achievementImages).map((src) => (
+              <img src={src} alt="Achievement" class="h-56 w-auto object-cover rounded-lg shadow-md border border-gray-300 flex-shrink-0" loading="lazy" />
+            ))}
+          </div>
+        </div>
+        <div class="text-center mt-6">
+          <a href="/achievements" class="inline-flex items-center text-white bg-primary font-bold hover:bg-primary-dark py-2 px-6 rounded shadow transition-colors">
+            View All Achievements <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </a>
+        </div>
+      </div>
+    )}
+
+    {/* Gallery Preview */}
+    {galleryImages.length > 0 && (
+      <div>
+        <div class="text-center mb-8">
+          <h2 class="text-3xl font-bold text-primary uppercase">Campus Life</h2>
+          <div class="w-24 h-1 bg-secondary mx-auto mt-2"></div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {galleryImages.map((src) => (
+            <a href="/gallery" class="aspect-video bg-gray-200 overflow-hidden rounded-lg group shadow-sm block relative">
+              <img src={src} alt="Gallery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+              </div>
+            </a>
+          ))}
+        </div>
+        <div class="text-center mt-6">
+          <a href="/gallery" class="inline-block bg-primary text-white font-bold py-3 px-8 rounded shadow-md hover:bg-primary-dark transition-colors uppercase tracking-wide text-sm">
+            View Full Gallery
+          </a>
+        </div>
+      </div>
+    )}
+
+    {/* Quick Stats Section */}
+    <div class="bg-gray-100 rounded-lg p-8 border border-gray-200">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div>
+          <p class="text-4xl font-extrabold text-primary mb-1">100%</p>
+          <p class="text-sm text-gray-600 font-bold uppercase tracking-wide">Pass Rate</p>
+        </div>
+        <div>
+          <p class="text-4xl font-extrabold text-primary mb-1">1500+</p>
+          <p class="text-sm text-gray-600 font-bold uppercase tracking-wide">Students</p>
+        </div>
+        <div>
+          <p class="text-4xl font-extrabold text-primary mb-1">50+</p>
+          <p class="text-sm text-gray-600 font-bold uppercase tracking-wide">Expert Faculty</p>
+        </div>
+        <div>
+          <p class="text-4xl font-extrabold text-primary mb-1">30+</p>
+          <p class="text-sm text-gray-600 font-bold uppercase tracking-wide">Awards Won</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <style>
+    .animate-carousel {
+      animation: carousel 60s linear infinite;
+    }
+    .pause-animation:hover {
+      animation-play-state: paused;
+    }
+    @keyframes carousel {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 1.5rem)); }
+    }
+  </style>
+</Layout>

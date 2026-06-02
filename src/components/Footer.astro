@@ -1,0 +1,85 @@
+---
+// Footer Component
+const currentYear = new Date().getFullYear();
+---
+<footer class="bg-primary-dark text-white pt-16 pb-8 border-t-4 border-secondary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      
+      {/* School Info */}
+      <div class="col-span-1 md:col-span-2 lg:col-span-1">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-white rounded-full p-1 mr-3">
+             <img src="/images/Header1.jpg" alt="School Crest" class="w-[300%] h-[300%] max-w-none object-cover" style="object-position: 8% 50%;" />
+          </div>
+          <h3 class="text-xl font-bold text-secondary uppercase leading-tight">Air Force School<br/><span class="text-white text-base font-medium">Avadi</span></h3>
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed mb-4 text-justify">
+          Committed to providing quality education, instilling discipline, and nurturing future leaders in a conducive learning environment under the aegis of the Indian Air Force Educational and Cultural Society.
+        </p>
+        <div class="bg-primary/50 p-3 rounded border border-gray-600">
+           <p class="text-xs text-gray-300"><strong class="text-white">CBSE Affiliation No:</strong> 1931328</p>
+           <p class="text-xs text-gray-300"><strong class="text-white">School Code:</strong> 56353</p>
+        </div>
+      </div>
+
+      {/* Quick Links */}
+      <div>
+        <h3 class="text-lg font-bold mb-4 border-b-2 border-secondary inline-block pb-1 uppercase tracking-wide">Explore</h3>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li><a href="/" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> Home</a></li>
+          <li><a href="/about" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> About the School</a></li>
+          <li><a href="/admission" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> Admissions</a></li>
+          <li><a href="/academics" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> Academics</a></li>
+          <li><a href="/achievements" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> Achievements</a></li>
+          <li><a href="/facilities" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> Infrastructure</a></li>
+        </ul>
+      </div>
+
+      {/* Important Links */}
+      <div>
+        <h3 class="text-lg font-bold mb-4 border-b-2 border-secondary inline-block pb-1 uppercase tracking-wide">Important Links</h3>
+        <ul class="space-y-2 text-sm text-gray-300">
+          <li><a href="https://www.cbse.gov.in/" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> CBSE Main Website</a></li>
+          <li><a href="https://cbseacademic.nic.in/" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> CBSE Academic</a></li>
+          <li><a href="https://ncert.nic.in/" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> NCERT</a></li>
+          <li><a href="https://diksha.gov.in/" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> DIKSHA Portal</a></li>
+          <li><a href="https://chaloschools.in/web/webportal/#/sign-in" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> Parent Portal</a></li>
+          <li><a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm" target="_blank" rel="noopener noreferrer" class="hover:text-secondary transition-colors flex items-center"><span class="text-secondary mr-2">›</span> Online Fee Payment</a></li>
+        </ul>
+      </div>
+
+      {/* Contact Info */}
+      <div>
+        <h3 class="text-lg font-bold mb-4 border-b-2 border-secondary inline-block pb-1 uppercase tracking-wide">Contact Us</h3>
+        <address class="not-italic text-sm text-gray-300 space-y-3">
+          <p class="flex items-start">
+            <svg class="h-5 w-5 mr-3 text-secondary shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span>Air Force School Avadi,<br/>Air Force Station Avadi,<br/>Chennai, Tamil Nadu 600055</span>
+          </p>
+          <p class="flex items-center">
+            <svg class="h-5 w-5 mr-3 text-secondary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>044-26840017</span>
+          </p>
+          <p class="flex items-center">
+            <svg class="h-5 w-5 mr-3 text-secondary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <a href="mailto:afschoolavadi@gmail.com" class="hover:text-secondary transition-colors">afschoolavadi@gmail.com</a>
+          </p>
+        </address>
+      </div>
+
+    </div>
+    
+    <div class="border-t border-gray-700 pt-6 mt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+      <p class="mb-2 md:mb-0">&copy; {currentYear} Air Force School Avadi. All rights reserved.</p>
+      <p>Designed & Maintained by <span class="text-gray-300 font-semibold">DMV Technologies</span></p>
+    </div>
+  </div>
+</footer>

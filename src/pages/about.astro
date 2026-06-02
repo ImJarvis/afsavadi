@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Us">
+  <div class="bg-primary text-white py-16 border-b-4 border-secondary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center">
+      <div class="w-16 h-16 bg-white rounded-full p-1 mr-4 hidden md:block">
+         <img src="/images/logo.jpg" alt="School Crest" class="w-full h-full object-contain rounded-full" />
+      </div>
+      <div>
+        <h1 class="text-3xl md:text-5xl font-extrabold uppercase tracking-wide">About Our School</h1>
+        <p class="text-gray-300 mt-2 font-medium">Nurturing Excellence Since 1948</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      
+      <div class="lg:col-span-2 space-y-10 text-gray-700 leading-relaxed">
+        
+        {/* Featured Campus Image */}
+        <div class="rounded-lg overflow-hidden shadow-md border border-gray-200">
+          <img src="/Infrastructure/Infra25/School Building/1.jpg" onerror="this.src='/images/HonepageFirstphoto.jpg'" alt="School Campus" class="w-full h-64 md:h-96 object-cover" />
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold text-primary border-b-2 border-secondary pb-2 mb-6 uppercase inline-block">History & Overview</h2>
+          <p class="mb-4 text-justify">
+            Established in <strong>1948</strong>, Air Force School Avadi has a rich history of nurturing young minds. We are permanently affiliated with the Central Board of Secondary Education (CBSE Affiliation No: 1931328) and managed by the IAF Educational and Cultural Society.
+          </p>
+          <p class="mb-4 text-justify">
+            The school aims to promote education, culture, and sports among the children of Air Force Personnel and the local community. The school runs classes from LKG to XII with Science and Commerce streams at the Senior Secondary level.
+          </p>
+        </div>
+
+        {/* Vision & Mission */}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-blue-50 p-6 rounded-lg border border-blue-100 shadow-sm">
+            <div class="flex items-center mb-3">
+              <svg class="w-8 h-8 text-primary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+              <h3 class="text-xl font-bold text-primary uppercase">Our Vision</h3>
+            </div>
+            <p class="text-sm text-justify">To be the premier educational institution that cultivates intellectual curiosity, personal growth, and ethical leadership.</p>
+          </div>
+          <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-100 shadow-sm">
+            <div class="flex items-center mb-3">
+              <svg class="w-8 h-8 text-secondary mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              <h3 class="text-xl font-bold text-primary uppercase">Our Mission</h3>
+            </div>
+            <p class="text-sm text-justify">To provide quality education in a disciplined and nurturing environment, instilling core values of integrity and patriotism.</p>
+          </div>
+        </div>
+
+        {/* History Timeline */}
+        <div>
+          <h2 class="text-3xl font-bold text-primary border-b-2 border-secondary pb-2 mb-8 uppercase inline-block">Our Journey</h2>
+          <div class="relative border-l-4 border-gray-200 ml-4 space-y-8 pb-4">
+            <div class="relative pl-8">
+              <div class="absolute -left-[14px] top-1 w-6 h-6 rounded-full bg-primary border-4 border-white shadow"></div>
+              <h3 class="font-bold text-primary text-lg">1948</h3>
+              <p class="text-gray-600 font-medium">Foundation of Air Force School Avadi.</p>
+            </div>
+            <div class="relative pl-8">
+              <div class="absolute -left-[14px] top-1 w-6 h-6 rounded-full bg-secondary border-4 border-white shadow"></div>
+              <h3 class="font-bold text-primary text-lg">CBSE Affiliation</h3>
+              <p class="text-gray-600 font-medium">Secured affiliation with the Central Board of Secondary Education (1931328).</p>
+            </div>
+            <div class="relative pl-8">
+              <div class="absolute -left-[14px] top-1 w-6 h-6 rounded-full bg-accent border-4 border-white shadow"></div>
+              <h3 class="font-bold text-primary text-lg">Senior Secondary Status</h3>
+              <p class="text-gray-600 font-medium">Upgraded to Class XII with Science and Commerce streams.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold text-primary border-b-2 border-secondary pb-2 mb-6 uppercase inline-block">Campus Details</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="bg-gray-50 border border-gray-200 p-4 rounded-lg text-center shadow-sm">
+              <span class="block text-3xl font-bold text-secondary mb-1">1.92</span>
+              <span class="block text-sm font-semibold text-gray-500 uppercase">Acres Total Area</span>
+              <span class="block text-xs text-gray-400">(7776.77 Sq. mtrs)</span>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 p-4 rounded-lg text-center shadow-sm">
+              <span class="block text-3xl font-bold text-secondary mb-1">1072</span>
+              <span class="block text-sm font-semibold text-gray-500 uppercase">Sq. Mtrs Built-up</span>
+              <span class="block text-xs text-gray-400">Classrooms & Labs</span>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 p-4 rounded-lg text-center shadow-sm">
+              <span class="block text-3xl font-bold text-secondary mb-1">6704</span>
+              <span class="block text-sm font-semibold text-gray-500 uppercase">Sq. Mtrs Playground</span>
+              <span class="block text-xs text-gray-400">Sports Facilities</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="space-y-8">
+        
+        {/* Management Committee */}
+        <div class="bg-primary-dark p-6 rounded-lg border-t-4 border-secondary text-white shadow-md">
+          <h3 class="text-xl font-bold mb-6 uppercase tracking-wide border-b border-gray-600 pb-2">Management Committee</h3>
+          
+          <div class="space-y-6">
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 border-2 border-secondary overflow-hidden flex items-center justify-center">
+                 <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+              </div>
+              <div>
+                <p class="font-bold text-lg leading-tight">Air Cmde Pradeep Sharma VSM</p>
+                <p class="text-secondary text-sm font-semibold uppercase mt-1">Chairman</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 border-2 border-secondary overflow-hidden flex items-center justify-center">
+                 <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+              </div>
+              <div>
+                <p class="font-bold text-lg leading-tight">Flt Lt Akshaya Sree NR</p>
+                <p class="text-secondary text-sm font-semibold uppercase mt-1">Executive Director</p>
+              </div>
+            </div>
+
+            <div class="flex items-center space-x-4">
+              <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0 border-2 border-secondary overflow-hidden flex items-center justify-center">
+                 <svg class="w-8 h-8 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+              </div>
+              <div>
+                <p class="font-bold text-lg leading-tight">Mrs Rakhee Nair</p>
+                <p class="text-secondary text-sm font-semibold uppercase mt-1">Principal</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Facts */}
+        <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+          <h3 class="text-xl font-bold text-primary mb-4 uppercase border-b-2 border-secondary inline-block pb-1">Quick Facts</h3>
+          <ul class="space-y-4 text-sm">
+            <li class="flex flex-col border-b border-gray-100 pb-2">
+              <span class="text-gray-500 font-semibold uppercase text-xs">Affiliation</span>
+              <span class="font-bold text-dark">CBSE (No. 1931328)</span>
+            </li>
+            <li class="flex flex-col border-b border-gray-100 pb-2">
+              <span class="text-gray-500 font-semibold uppercase text-xs">School Code</span>
+              <span class="font-bold text-dark">56353</span>
+            </li>
+            <li class="flex flex-col border-b border-gray-100 pb-2">
+              <span class="text-gray-500 font-semibold uppercase text-xs">Classes</span>
+              <span class="font-bold text-dark">LKG to XII</span>
+            </li>
+            <li class="flex flex-col">
+              <span class="text-gray-500 font-semibold uppercase text-xs">Streams Available (XI & XII)</span>
+              <span class="font-bold text-dark">Science & Commerce</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>

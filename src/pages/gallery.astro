@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+function getImages(dirPath, relativePrefix) {
+  try {
+    const fullPath = path.join(process.cwd(), 'public', dirPath);
+    if (fs.existsSync(fullPath)) {
+      const files = fs.readdirSync(fullPath).filter(f => f.match(/\.(jpg|jpeg|png)$/i));
+      return files.map(f => ({
+        src: `${relativePrefix}/${f}`,
+        name: f.replace(/\.[^/.]+$/, "")
+      }));
+    }
+  } catch (e) {
+    console.error(`Error reading ${dirPath}:`, e);
+  }
+  return [];
+}
+
+const events2026 = getImages('Gallery/Gallery_2026', '/Gallery/Gallery_2026');
+const fitIndia = getImages('Gallery/Fit India 23-24', '/Gallery/Fit India 23-24');
+const infrastructure = getImages('Infrastructure/Infra25', '/Infrastructure/Infra25');
+
+const allImages = [
+  ...events2026.map(img => ({ ...img, category: 'events' })),
+  ...fitIndia.map(img => ({ ...img, category: 'fitindia' })),
+  ...infrastructure.map(img => ({ ...img, category: 'infra' }))
+];
+---
+
+<Layout title="Gallery">
+  <div class="bg-primary text-white py-16 border-b-4 border-secondary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-5xl font-extrabold uppercase tracking-wide">Photo Gallery</h1>
+    </div>
+  </div>
+
+  <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-gray-600 mb-8 max-w-2xl text-lg">Glimpses of activities, events, and campus life at Air Force School Avadi.</p>
+    
+    {/* Category Tabs (CSS only filtering using radio buttons) */}
+    <div class="gallery-container">
+      <input type="radio" name="gallery-filter" id="filter-all" class="hidden peer/all" checked />
+      <input type="radio" name="gallery-filter" id="filter-events" class="hidden peer/events" />
+      <input type="radio" name="gallery-filter" id="filter-fitindia" class="hidden peer/fitindia" />
+      <input type="radio" name="gallery-filter" id="filter-infra" class="hidden peer/infra" />
+
+      <div class="flex flex-wrap gap-4 mb-10 justify-center">
+        <label for="filter-all" class="cursor-pointer px-6 py-2 rounded-full border-2 border-primary text-primary font-bold transition-colors peer-checked/all:bg-primary peer-checked/all:text-white uppercase text-sm tracking-wide shadow-sm hover:bg-blue-50">All Photos</label>
+        <label for="filter-events" class="cursor-pointer px-6 py-2 rounded-full border-2 border-primary text-primary font-bold transition-colors peer-checked/events:bg-primary peer-checked/events:text-white uppercase text-sm tracking-wide shadow-sm hover:bg-blue-50">Events 2026</label>
+        <label for="filter-fitindia" class="cursor-pointer px-6 py-2 rounded-full border-2 border-primary text-primary font-bold transition-colors peer-checked/fitindia:bg-primary peer-checked/fitindia:text-white uppercase text-sm tracking-wide shadow-sm hover:bg-blue-50">Fit India</label>
+        <label for="filter-infra" class="cursor-pointer px-6 py-2 rounded-full border-2 border-primary text-primary font-bold transition-colors peer-checked/infra:bg-primary peer-checked/infra:text-white uppercase text-sm tracking-wide shadow-sm hover:bg-blue-50">Infrastructure</label>
+      </div>
+
+      <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+        {allImages.map((img, index) => (
+          <div class={`break-inside-avoid gallery-item relative group rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-200 item-${img.category}`}>
+            <a href={`#lightbox-${index}`} class="block cursor-zoom-in">
+              <img src={img.src} alt={img.name} class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <p class="text-white text-sm font-bold p-4 w-full truncate">{img.name}</p>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <style>
+        .peer\/all:checked ~ .columns-1 .gallery-item { display: block; }
+        .peer\/events:checked ~ .columns-1 .gallery-item:not(.item-events) { display: none; }
+        .peer\/events:checked ~ .columns-1 .item-events { display: block; }
+        .peer\/fitindia:checked ~ .columns-1 .gallery-item:not(.item-fitindia) { display: none; }
+        .peer\/fitindia:checked ~ .columns-1 .item-fitindia { display: block; }
+        .peer\/infra:checked ~ .columns-1 .gallery-item:not(.item-infra) { display: none; }
+        .peer\/infra:checked ~ .columns-1 .item-infra { display: block; }
+      </style>
+    </div>
+
+    {/* Lightbox Modals */}
+    {allImages.map((img, index) => (
+      <div id={`lightbox-${index}`} class="lightbox fixed inset-0 z-50 bg-black/90 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-sm p-4">
+        <a href="#_" class="absolute inset-0 z-0 cursor-default"></a>
+        <div class="relative z-10 max-w-5xl max-h-[90vh] w-full flex flex-col items-center">
+          <a href="#_" class="absolute -top-12 right-0 text-white hover:text-secondary p-2 transition-colors">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </a>
+          <img src={img.src} alt={img.name} class="max-w-full max-h-[80vh] object-contain rounded shadow-2xl" loading="lazy" />
+          <p class="text-white text-center mt-4 text-lg font-medium">{img.name}</p>
+        </div>
+      </div>
+    ))}
+
+    <style>
+      .lightbox:target {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    </style>
+  </section>
+</Layout>

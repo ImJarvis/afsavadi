@@ -1,0 +1,180 @@
+---
+import Layout from '../layouts/Layout.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+function getImages(dirPath, relativePrefix) {
+  try {
+    const fullPath = path.join(process.cwd(), 'public', dirPath);
+    if (fs.existsSync(fullPath)) {
+      const files = fs.readdirSync(fullPath).filter(f => f.match(/\.(jpg|jpeg|png)$/i));
+      return files.map(f => ({
+        src: `${relativePrefix}/${f}`,
+        name: f.replace(/\.[^/.]+$/, "")
+      }));
+    }
+  } catch (e) {
+    console.error(`Error reading ${dirPath}:`, e);
+  }
+  return [];
+}
+
+const achievements25 = getImages('Achivements/Achievements_25', '/Achivements/Achievements_25');
+const awards2026 = getImages('images/Awards_2026', '/images/Awards_2026');
+const achievements2026 = getImages('Achivements/2026', '/Achivements/2026');
+
+const allAwards = [...awards2026, ...achievements2026];
+---
+
+<Layout title="Achievements">
+  <div class="bg-primary text-white py-16 border-b-4 border-secondary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl md:text-5xl font-extrabold uppercase tracking-wide">Our Achievements</h1>
+      <p class="text-gray-300 mt-2 font-medium">Soaring High in Academics and Co-Curriculars</p>
+    </div>
+  </div>
+
+  <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Highlight Section & Results History */}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+      <div class="bg-white p-8 rounded-lg shadow-md border-t-4 border-primary">
+        <h2 class="text-2xl font-bold text-primary mb-4 uppercase">Academic Excellence</h2>
+        <p class="text-gray-700 text-lg leading-relaxed mb-4">
+          Air Force School Avadi takes immense pride in its students' academic performance. We have maintained a consistent record of exceptional results in CBSE Class X and XII Board Examinations, with numerous students securing subject-wise top honors.
+        </p>
+        <div class="flex flex-wrap gap-4 mt-6">
+           <span class="bg-blue-100 text-blue-800 font-bold px-4 py-2 rounded-full text-sm">CBSE Toppers</span>
+           <span class="bg-green-100 text-green-800 font-bold px-4 py-2 rounded-full text-sm">NDA Selections</span>
+           <span class="bg-purple-100 text-purple-800 font-bold px-4 py-2 rounded-full text-sm">NEET Qualifiers</span>
+           <span class="bg-yellow-100 text-yellow-800 font-bold px-4 py-2 rounded-full text-sm">JEE Advanced</span>
+        </div>
+      </div>
+
+      <div class="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-200">
+        <h2 class="text-2xl font-bold text-primary mb-6 uppercase border-b-2 border-secondary inline-block pb-1">Results History</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-primary text-white text-sm uppercase tracking-wide">
+                <th class="p-3 rounded-tl-lg">Year</th>
+                <th class="p-3">Class X Pass %</th>
+                <th class="p-3">Class XII Pass %</th>
+                <th class="p-3 rounded-tr-lg">Centums</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-700">
+              <tr class="border-b border-gray-200 hover:bg-gray-100 transition-colors">
+                <td class="p-3 font-bold">2024-25</td>
+                <td class="p-3">100%</td>
+                <td class="p-3">100%</td>
+                <td class="p-3 text-secondary font-bold">24</td>
+              </tr>
+              <tr class="border-b border-gray-200 hover:bg-gray-100 transition-colors">
+                <td class="p-3 font-bold">2023-24</td>
+                <td class="p-3">100%</td>
+                <td class="p-3">99.2%</td>
+                <td class="p-3 text-secondary font-bold">18</td>
+              </tr>
+              <tr class="border-b border-gray-200 hover:bg-gray-100 transition-colors">
+                <td class="p-3 font-bold">2022-23</td>
+                <td class="p-3">100%</td>
+                <td class="p-3">100%</td>
+                <td class="p-3 text-secondary font-bold">15</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    {/* Achievements Auto-scrolling Carousel */}
+    {achievements25.length > 0 && (
+      <div class="mb-16">
+        <h2 class="text-3xl font-bold text-primary mb-8 border-b-2 border-secondary pb-2 inline-block uppercase">Sports & Co-curricular 2025</h2>
+        <div class="overflow-hidden relative w-full bg-white py-6 shadow-sm border border-gray-200 rounded-lg">
+          <div class="flex space-x-6 animate-carousel hover:pause-animation px-4">
+            {achievements25.concat(achievements25).map((img) => (
+              <div class="relative group flex-shrink-0">
+                <img src={img.src} alt={img.name} class="h-64 w-auto object-cover rounded-lg shadow-md border border-gray-300" loading="lazy" />
+                <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 rounded-lg">
+                  <p class="text-white text-sm font-bold truncate w-full">{img.name}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+
+    {/* Awards Timeline/Table */}
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-8 border-b-2 border-secondary pb-2 inline-block uppercase">Awards Timeline</h2>
+      <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="bg-gray-100 text-primary uppercase text-sm border-b-2 border-primary">
+                <th class="p-4">Year</th>
+                <th class="p-4">Award Title</th>
+                <th class="p-4">Category</th>
+                <th class="p-4">Level</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-700 divide-y divide-gray-200">
+              <tr class="hover:bg-blue-50 transition-colors">
+                <td class="p-4 font-bold text-primary">2025</td>
+                <td class="p-4 font-medium">Best Clean School Award</td>
+                <td class="p-4">Swachh Vidyalaya</td>
+                <td class="p-4"><span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs font-bold uppercase">State</span></td>
+              </tr>
+              <tr class="hover:bg-blue-50 transition-colors">
+                <td class="p-4 font-bold text-primary">2024</td>
+                <td class="p-4 font-medium">CBSE Sports Championship Trophy</td>
+                <td class="p-4">Sports</td>
+                <td class="p-4"><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-bold uppercase">National</span></td>
+              </tr>
+              <tr class="hover:bg-blue-50 transition-colors">
+                <td class="p-4 font-bold text-primary">2024</td>
+                <td class="p-4 font-medium">Excellence in Science Exhibition</td>
+                <td class="p-4">Academics</td>
+                <td class="p-4"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs font-bold uppercase">Zonal</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    {/* Awards 2026 Masonry Grid */}
+    {allAwards.length > 0 && (
+      <div>
+        <h2 class="text-3xl font-bold text-primary mb-8 border-b-2 border-secondary pb-2 inline-block uppercase">Awards & Accolades</h2>
+        <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          {allAwards.map((img) => (
+            <div class="break-inside-avoid relative group rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-200">
+              <img src={img.src} alt={img.name} class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <p class="text-white text-sm font-bold p-4 w-full truncate">{img.name}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+  </section>
+
+  <style>
+    .animate-carousel {
+      animation: carousel 60s linear infinite;
+    }
+    .pause-animation:hover {
+      animation-play-state: paused;
+    }
+    @keyframes carousel {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 1.5rem)); }
+    }
+  </style>
+</Layout>
