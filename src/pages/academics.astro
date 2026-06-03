@@ -1,14 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 ---
 
 <Layout title="Academics">
   <div class="bg-primary text-white py-16 border-b-4 border-secondary">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 class="text-3xl md:text-5xl font-extrabold uppercase tracking-wide">Academics</h1>
-      <p class="text-gray-300 mt-2 font-medium">Curriculum, Streams, and Calendar</p>
+      <p class="text-gray-300 mt-2 font-medium">Curriculum, Streams, Academic Calendar & Resources</p>
     </div>
   </div>
+
+  <Breadcrumb items={[{ label: 'Academics' }]} />
 
   <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -96,23 +99,83 @@ import Layout from '../layouts/Layout.astro';
       {/* Sidebar */}
       <div class="space-y-8">
         
-        {/* Academic Calendar */}
-        <div class="bg-white border-2 border-gray-200 rounded-lg shadow-md overflow-hidden">
+        {/* Academic Calendar — HTML Table */}
+        <div id="calendar" class="bg-white border-2 border-gray-200 rounded-lg shadow-md overflow-hidden">
           <div class="bg-primary text-white p-4 text-center">
-             <h3 class="text-xl font-bold uppercase tracking-wide">Academic Calendar</h3>
+             <h3 class="text-xl font-bold uppercase tracking-wide flex items-center justify-center gap-2">
+               <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+               Academic Calendar 2025-26
+             </h3>
           </div>
-          <div class="p-4">
-             <a href="/images/Academic Calender_25.jpg" target="_blank" class="block group">
-               <img src="/images/Academic Calender_25.jpg" alt="Academic Calendar 2025" class="w-full h-auto border border-gray-200 group-hover:opacity-90 transition-opacity" />
-               <div class="mt-4 text-center">
-                 <span class="inline-block bg-gray-100 text-primary font-bold px-4 py-2 rounded group-hover:bg-gray-200 transition-colors border border-gray-300 w-full">View Full Size</span>
-               </div>
-             </a>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-gray-100 text-primary uppercase text-xs tracking-wide border-b-2 border-gray-300">
+                  <th class="p-3 text-left">Month</th>
+                  <th class="p-3 text-left">Key Events / Examinations</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">April</td>
+                  <td class="p-3 text-gray-700">New Academic Session begins · Unit Test 1 (Classes I–VIII)</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">May</td>
+                  <td class="p-3 text-gray-700">Half-Yearly Exam Preparation · Summer Vacation (approx.)</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">June</td>
+                  <td class="p-3 text-gray-700">School Re-opens after Summer Break</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">July</td>
+                  <td class="p-3 text-gray-700">Unit Test 2 · PTM (Parent-Teacher Meeting)</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">August</td>
+                  <td class="p-3 text-gray-700">Independence Day celebrations · NCC/Scouts activities</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">September</td>
+                  <td class="p-3 text-gray-700">Half-Yearly Examinations (Classes I–XII)</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">October</td>
+                  <td class="p-3 text-gray-700">Half-Yearly results · Dussehra Holidays · Unit Test 3</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">November</td>
+                  <td class="p-3 text-gray-700">Annual Sports Day · Cultural Events · PTM</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">December</td>
+                  <td class="p-3 text-gray-700">Annual Day · Pre-Board Exams begin (Class X & XII) · Winter Vacation</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">January</td>
+                  <td class="p-3 text-gray-700">Republic Day · CBSE Pre-Board / Practical Exams</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">February</td>
+                  <td class="p-3 text-gray-700">CBSE Board Exams begin (Class X & XII) · Annual Exam for other classes</td>
+                </tr>
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary">March</td>
+                  <td class="p-3 text-gray-700">CBSE Board Exams conclude · Annual Exam Results · Academic Session ends</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="p-3 bg-gray-50 border-t border-gray-200">
+            <a href="/images/Academic Calender_25.jpg" target="_blank" rel="noopener noreferrer" class="text-xs text-primary underline hover:text-accent transition-colors">
+              View official Academic Calendar image ↗
+            </a>
           </div>
         </div>
 
-        {/* Key Statistics */}
-        <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 shadow-sm">
+        {/* Curriculum Documents */}
+        <div id="papers" class="bg-gray-50 border border-gray-200 rounded-lg p-6 shadow-sm">
           <h3 class="text-xl font-bold text-primary mb-4 uppercase border-b border-gray-300 pb-2">Academic Stats</h3>
           <ul class="space-y-4">
             <li class="flex items-center justify-between">
@@ -126,6 +189,32 @@ import Layout from '../layouts/Layout.astro';
             <li class="flex items-center justify-between">
               <span class="font-semibold text-gray-600">Well-equipped Labs</span>
               <span class="font-bold text-secondary text-lg">4</span>
+            </li>
+          </ul>
+        </div>
+
+        {/* Sample Question Papers */}
+        <div class="bg-primary text-white rounded-lg p-6 shadow-md border-t-4 border-secondary">
+          <h3 class="text-lg font-bold mb-4 uppercase tracking-wide border-b border-white/20 pb-2">Sample Question Papers</h3>
+          <p class="text-sm text-white/80 mb-4">Access model question papers for CBSE Board examination preparation.</p>
+          <ul class="space-y-2">
+            <li>
+              <a href="/images/QuestionPaper_Model.jpg" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm text-white hover:text-secondary transition-colors">
+                <svg class="w-4 h-4 mr-2 text-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Model Question Papers
+              </a>
+            </li>
+            <li>
+              <a href="/achievements#results" class="flex items-center text-sm text-white hover:text-secondary transition-colors">
+                <svg class="w-4 h-4 mr-2 text-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                Board Exam Results
+              </a>
+            </li>
+            <li>
+              <a href="https://cbseacademic.nic.in/" target="_blank" rel="noopener noreferrer" class="flex items-center text-sm text-white hover:text-secondary transition-colors">
+                <svg class="w-4 h-4 mr-2 text-secondary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                CBSE Academic Website ↗
+              </a>
             </li>
           </ul>
         </div>

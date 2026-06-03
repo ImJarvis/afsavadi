@@ -1,0 +1,310 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Mandatory Public Disclosure | Air Force School Avadi">
+
+  <!-- Page Banner -->
+  <div class="bg-primary text-white py-16 border-b-4 border-secondary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-blue-200 mb-3">
+        <a href="/" class="hover:text-secondary transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span>Mandatory Public Disclosure</span>
+      </nav>
+      <h1 class="text-3xl md:text-4xl font-bold">Mandatory Public Disclosure</h1>
+      <p class="mt-2 text-blue-100 text-lg">As mandated by the Central Board of Secondary Education (CBSE)</p>
+    </div>
+  </div>
+
+  <!-- CBSE Notice Banner -->
+  <div class="bg-secondary/10 border-l-4 border-secondary">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-start gap-3">
+      <svg class="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+      </svg>
+      <p class="text-sm text-gray-800 font-medium">
+        <strong>CBSE Notice:</strong> As per CBSE guidelines, all affiliated schools are required to maintain and publicly display this Mandatory Public Disclosure. This page is updated annually.
+      </p>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="flex flex-col lg:flex-row gap-10">
+
+      <!-- ===== STICKY SIDEBAR NAV ===== -->
+      <nav class="hidden lg:block w-64 shrink-0 self-start sticky top-6" aria-label="MPD Sections">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+          <div class="bg-primary px-4 py-3">
+            <p class="text-white font-semibold text-sm">On This Page</p>
+          </div>
+          <ul class="py-2">
+            {[
+              { href: '#general', label: 'General Information' },
+              { href: '#documents', label: 'Documents & Information' },
+              { href: '#results', label: 'Result & Academics' },
+              { href: '#staff', label: 'Teaching Staff' },
+              { href: '#infrastructure', label: 'Infrastructure' },
+              { href: '#fees', label: 'Fee Structure' },
+            ].map(({ href, label }) => (
+              <li>
+                <a href={href} class="block px-4 py-2.5 text-sm text-gray-700 hover:text-primary hover:bg-blue-50 transition-colors">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="mt-4 bg-primary/5 border border-primary/20 rounded-xl p-4">
+          <p class="text-xs text-gray-600 leading-relaxed">This disclosure is maintained as per CBSE Affiliation Bye-Laws and CBSE circular no. CBSE/AFF/2024.</p>
+          <p class="text-xs text-gray-500 mt-2">Last Updated: June 2026</p>
+        </div>
+      </nav>
+
+      <!-- ===== MAIN CONTENT ===== -->
+      <div class="flex-1 min-w-0 print:w-full space-y-12">
+
+        <!-- ===== SECTION 1: GENERAL INFORMATION ===== -->
+        <section id="general" class="scroll-mt-6">
+          <h2 class="text-xl font-bold text-primary mb-1 pb-3 border-b-2 border-gray-200 flex items-center gap-2">
+            <span class="w-1 h-6 bg-secondary rounded-full inline-block"></span>
+            A. General Information
+          </h2>
+          <div class="mt-4 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <table class="w-full text-sm">
+              <tbody>
+                {[
+                  ['Name of School', 'Air Force School Avadi'],
+                  ['Affiliation No.', '1931328'],
+                  ['School Code', '56353'],
+                  ['Complete Address', 'Air Force School, 23 Equipment Depot, Air Force Station Avadi, Chennai – 600055'],
+                  ['Phone Number', '044-26840017'],
+                  ['Email Address', 'afschoolavadi@gmail.com'],
+                  ['Year of Establishment', '1975'],
+                  ['Status of the School', 'Co-educational'],
+                  ['Nature of Affiliation', 'CBSE (up to Senior Secondary)'],
+                  ['Period of Affiliation', 'Permanent'],
+                  ['Principal Name', 'Gp Capt Anirudh Bhatia VSM (Retd)'],
+                  ['Principal Qualification', 'M.Sc., B.Ed.'],
+                  ['School Type', 'Senior Secondary (Classes I–XII)'],
+                ].map(([field, value], i) => (
+                  <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td class="px-5 py-3 font-semibold text-gray-700 w-2/5 border-r border-gray-100">{field}</td>
+                    <td class="px-5 py-3 text-gray-800">{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 2: DOCUMENTS ===== -->
+        <section id="documents" class="scroll-mt-6">
+          <h2 class="text-xl font-bold text-primary mb-1 pb-3 border-b-2 border-gray-200 flex items-center gap-2">
+            <span class="w-1 h-6 bg-secondary rounded-full inline-block"></span>
+            B. Documents and Information
+          </h2>
+          <p class="text-sm text-gray-600 mt-2 mb-4">Copies of the following documents are available at the school office for inspection during working hours.</p>
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-primary text-white">
+                  <th class="px-5 py-3 text-left font-semibold">Document</th>
+                  <th class="px-5 py-3 text-left font-semibold w-40">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  'Copies of Affiliation / Upgradation Letter',
+                  'Copies of Societies / Trust / Company Registration / Renewal Certificate',
+                  'Copy of No Objection Certificate (NOC) issued by State Govt.',
+                  'Copies of Recognition Certificate under RTE Act, 2009',
+                  'Copy of Valid Building Safety Certificate',
+                  'Copy of Valid Fire Safety Certificate',
+                  'Copy of DEO Certificate (for schools at Primary level)',
+                  'Copies of Valid Water, Health and Sanitation Certificates',
+                  'Copy of Land & Building Documents',
+                  'Copy of Pan Card of the Trust / Society',
+                ].map((doc, i) => (
+                  <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td class="px-5 py-3 text-gray-800">{doc}</td>
+                    <td class="px-5 py-3">
+                      <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-3 py-1 rounded-full">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Available
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 3: RESULTS ===== -->
+        <section id="results" class="scroll-mt-6">
+          <h2 class="text-xl font-bold text-primary mb-1 pb-3 border-b-2 border-gray-200 flex items-center gap-2">
+            <span class="w-1 h-6 bg-secondary rounded-full inline-block"></span>
+            C. Result and Academics
+          </h2>
+          <div class="mt-4 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-primary text-white">
+                  <th class="px-5 py-3 text-left font-semibold">Class</th>
+                  <th class="px-5 py-3 text-left font-semibold">Session</th>
+                  <th class="px-5 py-3 text-left font-semibold">No. of Students Appeared</th>
+                  <th class="px-5 py-3 text-left font-semibold">No. of Students Passed</th>
+                  <th class="px-5 py-3 text-left font-semibold">Pass %</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['Class X', '2023-24', '87', '87', '100%'],
+                  ['Class XII', '2023-24', '62', '62', '100%'],
+                  ['Class X', '2024-25', '91', '91', '100%'],
+                  ['Class XII', '2024-25', '68', '68', '100%'],
+                ].map(([cls, session, appeared, passed, pct], i) => (
+                  <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td class="px-5 py-3 font-semibold text-gray-800">{cls}</td>
+                    <td class="px-5 py-3 text-gray-700">{session}</td>
+                    <td class="px-5 py-3 text-gray-700">{appeared}</td>
+                    <td class="px-5 py-3 text-gray-700">{passed}</td>
+                    <td class="px-5 py-3">
+                      <span class="font-bold text-green-700 bg-green-50 px-2.5 py-0.5 rounded-full text-xs">{pct}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 4: STAFF ===== -->
+        <section id="staff" class="scroll-mt-6">
+          <h2 class="text-xl font-bold text-primary mb-1 pb-3 border-b-2 border-gray-200 flex items-center gap-2">
+            <span class="w-1 h-6 bg-secondary rounded-full inline-block"></span>
+            D. Staff (Teaching)
+          </h2>
+          <div class="mt-4 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-primary text-white">
+                  <th class="px-5 py-3 text-left font-semibold">Post</th>
+                  <th class="px-5 py-3 text-left font-semibold">Number</th>
+                  <th class="px-5 py-3 text-left font-semibold">B.Ed. Qualified</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['Principal', '1', 'Yes'],
+                  ['Vice-Principal', '1', 'Yes'],
+                  ['Post Graduate Teacher (PGT)', '12', 'Yes'],
+                  ['Trained Graduate Teacher (TGT)', '16', 'Yes'],
+                  ['Primary Teacher (PRT)', '10', 'Yes / D.El.Ed'],
+                  ['Physical Education Teacher', '2', 'B.P.Ed'],
+                  ['Librarian', '1', 'B.Lib'],
+                  ['Counsellor', '1', 'M.A. Psychology'],
+                ].map(([post, num, qual], i) => (
+                  <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td class="px-5 py-3 text-gray-800">{post}</td>
+                    <td class="px-5 py-3 text-gray-700">{num}</td>
+                    <td class="px-5 py-3 text-gray-700">{qual}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 5: INFRASTRUCTURE ===== -->
+        <section id="infrastructure" class="scroll-mt-6">
+          <h2 class="text-xl font-bold text-primary mb-1 pb-3 border-b-2 border-gray-200 flex items-center gap-2">
+            <span class="w-1 h-6 bg-secondary rounded-full inline-block"></span>
+            E. School Infrastructure
+          </h2>
+          <div class="mt-4 bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+            <table class="w-full text-sm">
+              <tbody>
+                {[
+                  ['Total Campus Area', '1.92 Acres (7,776.77 Sq. Mtrs)'],
+                  ['Total No. of Classrooms', '22 Classrooms'],
+                  ['Boys Toilets', 'Yes – Available & Maintained'],
+                  ['Girls Toilets', 'Yes – Available & Maintained'],
+                  ['Library', 'Yes – 75 Sq. Mtrs, 4,200+ Books'],
+                  ['Playground / Sports Ground', 'Yes – 6,700 Sq. Mtrs'],
+                  ['Computer Lab', 'Yes – 30 Computers with Internet'],
+                  ['Physics Lab', 'Yes'],
+                  ['Chemistry Lab', 'Yes'],
+                  ['Biology Lab', 'Yes'],
+                  ['Smart Classrooms', 'Yes – Interactive Boards Installed'],
+                  ['Canteen / Tuck Shop', 'Yes'],
+                  ['Medical Room', 'Yes – First Aid Available'],
+                  ['Drinking Water', 'Yes – RO Purified Water'],
+                  ['CCTV Surveillance', 'Yes – Entire Campus Covered'],
+                ].map(([item, detail], i) => (
+                  <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <td class="px-5 py-3 font-semibold text-gray-700 w-2/5 border-r border-gray-100">{item}</td>
+                    <td class="px-5 py-3 text-gray-800">{detail}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ===== SECTION 6: FEE STRUCTURE ===== -->
+        <section id="fees" class="scroll-mt-6">
+          <h2 class="text-xl font-bold text-primary mb-1 pb-3 border-b-2 border-gray-200 flex items-center gap-2">
+            <span class="w-1 h-6 bg-secondary rounded-full inline-block"></span>
+            F. Fee Structure
+          </h2>
+          <div class="mt-4 bg-blue-50 border border-primary/20 rounded-xl p-6 flex flex-col sm:flex-row gap-4 items-start">
+            <svg class="w-10 h-10 text-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            <div>
+              <h3 class="font-bold text-primary text-base mb-2">Fee Details Available on Admissions Page</h3>
+              <p class="text-sm text-gray-700 leading-relaxed">
+                The detailed fee structure for all classes (I–XII) including tuition fees, examination fees, and other charges is available on our Admissions page.
+                Fee payment is accepted via cash, DD, or online transfer at the school office.
+              </p>
+              <a href="/admission" class="mt-4 inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:bg-blue-900 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+                View Admission &amp; Fee Details
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Print Button -->
+        <div class="flex justify-end pt-4 print:hidden">
+          <button
+            onclick="window.print()"
+            class="flex items-center gap-2 border border-gray-300 text-gray-700 hover:border-primary hover:text-primary px-5 py-2.5 rounded-lg text-sm font-medium transition-colors"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+            </svg>
+            Print / Save as PDF
+          </button>
+        </div>
+
+      </div><!-- /main content -->
+    </div><!-- /flex -->
+  </div><!-- /container -->
+
+</Layout>
+
+<style>
+  @media print {
+    nav, aside, button { display: none !important; }
+    .bg-primary { background-color: #083a6b !important; }
+    section { page-break-inside: avoid; }
+    table { font-size: 11px; }
+  }
+</style>

@@ -1,45 +1,279 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import noticesData from '../data/notices.json';
 
-// Dummy data for notices - in a real site this would come from a CMS or markdown files
-const notices = [
-  { id: 1, date: "2026-06-01", title: "Admissions Open for Academic Year", isNew: true },
-  { id: 2, date: "2026-05-15", title: "Summer Vacation Schedule Announced", isNew: false },
-  { id: 3, date: "2026-04-10", title: "CBSE Board Exam Results Declaration", isNew: false },
-  { id: 4, date: "2026-03-20", title: "Revised Fee Structure for New Session", isNew: false },
-];
+// Sort notices newest first
+const notices = noticesData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+// Group notices by year
+const noticesByYear: Record<number, typeof notices> = {};
+for (const notice of notices) {
+  const year = new Date(notice.date).getFullYear();
+  if (!noticesByYear[year]) noticesByYear[year] = [];
+  noticesByYear[year].push(notice);
+}
+const sortedYears = Object.keys(noticesByYear).map(Number).sort((a, b) => b - a);
+
+// Category labels
+const categoryLabels: Record<string, string> = {
+  admission: 'Admission',
+  academic: 'Academic',
+  circular: 'Circular',
+  exam: 'Exam',
+  general: 'General',
+};
+
+const categoryColors: Record<string, string> = {
+  admission: 'bg-blue-100 text-blue-800',
+  academic: 'bg-green-100 text-green-800',
+  circular: 'bg-purple-100 text-purple-800',
+  exam: 'bg-orange-100 text-orange-800',
+  general: 'bg-gray-100 text-gray-800',
+};
 ---
 
-<Layout title="Notices & Circulars">
-  <div class="bg-primary text-white py-12">
+<Layout title="Notices & Circulars | Air Force School Avadi">
+  <!-- Page Banner -->
+  <div class="bg-primary text-white py-16 border-b-4 border-secondary">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 class="text-3xl md:text-4xl font-bold">Notices & Circulars</h1>
+      <nav class="text-sm text-blue-200 mb-3">
+        <a href="/" class="hover:text-secondary transition-colors">Home</a>
+        <span class="mx-2">/</span>
+        <span>Notices &amp; Circulars</span>
+      </nav>
+      <h1 class="text-3xl md:text-4xl font-bold font-montserrat">Notices &amp; Circulars</h1>
+      <p class="mt-2 text-blue-100 text-lg">Stay updated with the latest announcements and circulars from Air Force School Avadi.</p>
     </div>
   </div>
 
-  <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-      <ul class="divide-y divide-gray-200">
-        {notices.map((notice) => (
-          <li class="p-6 hover:bg-gray-50 transition-colors flex flex-col md:flex-row md:items-center justify-between group">
-            <div class="flex items-start md:items-center mb-4 md:mb-0">
-              <div class="bg-blue-100 text-primary px-3 py-1 rounded text-sm font-bold mr-4 shrink-0">
-                {new Date(notice.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })}
+  <section class="py-10 md:py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row gap-8">
+
+        <!-- ======= MAIN CONTENT ======= -->
+        <div class="flex-1 min-w-0">
+          <!-- Search Bar -->
+          <div class="mb-6">
+            <div class="relative">
+              <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0"/>
+              </svg>
+              <input
+                id="noticeSearch"
+                type="search"
+                placeholder="Search notices..."
+                class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary text-dark placeholder-gray-400 transition"
+              />
+            </div>
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex flex-wrap gap-2 mb-8" id="categoryTabs">
+            <button
+              data-cat="all"
+              class="cat-tab active-tab px-4 py-2 rounded-full text-sm font-semibold bg-primary text-white transition"
+            >All</button>
+            {Object.entries(categoryLabels).map(([key, label]) => (
+              <button
+                data-cat={key}
+                class="cat-tab px-4 py-2 rounded-full text-sm font-semibold bg-white border border-gray-300 text-gray-700 hover:border-primary hover:text-primary transition"
+              >{label}</button>
+            ))}
+          </div>
+
+          <!-- No results message -->
+          <div id="noResults" class="hidden text-center py-16 text-gray-500">
+            <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-3-3v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <p class="text-lg font-medium">No notices found</p>
+            <p class="text-sm mt-1">Try adjusting your search or filter.</p>
+          </div>
+
+          <!-- Notices grouped by Year -->
+          {sortedYears.map((year) => (
+            <div class="year-group mb-10" data-year={year}>
+              <div class="flex items-center gap-4 mb-4">
+                <h2 class="text-lg font-bold text-primary">{year}</h2>
+                <div class="flex-1 h-px bg-gray-200"></div>
               </div>
-              <div>
-                <h3 class="text-lg font-medium text-dark group-hover:text-primary transition-colors flex items-center">
-                  {notice.title}
-                  {notice.isNew && <span class="ml-3 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse">New</span>}
-                </h3>
+              <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <ul class="divide-y divide-gray-100">
+                  {noticesByYear[year].map((notice) => {
+                    const dateObj = new Date(notice.date);
+                    const dayStr = dateObj.toLocaleDateString('en-GB', { day: '2-digit' });
+                    const monthStr = dateObj.toLocaleDateString('en-GB', { month: 'short' });
+                    const yearStr = dateObj.getFullYear();
+                    const catColor = categoryColors[notice.category] ?? 'bg-gray-100 text-gray-700';
+                    const catLabel = categoryLabels[notice.category] ?? notice.category;
+                    return (
+                      <li
+                        class="notice-item flex items-center gap-4 p-5 hover:bg-blue-50/50 transition-colors group"
+                        data-cat={notice.category}
+                        data-title={notice.title.toLowerCase()}
+                      >
+                        <!-- Date Badge -->
+                        <div class="shrink-0 w-14 text-center bg-primary/5 border border-primary/10 rounded-lg py-2 px-1">
+                          <div class="text-xl font-extrabold text-primary leading-none">{dayStr}</div>
+                          <div class="text-[10px] font-semibold text-gray-500 uppercase tracking-widest mt-0.5">{monthStr}</div>
+                          <div class="text-[10px] text-gray-400">{yearStr}</div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1 min-w-0">
+                          <div class="flex flex-wrap items-center gap-2 mb-1">
+                            <span class={`text-xs font-semibold px-2 py-0.5 rounded-full ${catColor}`}>{catLabel}</span>
+                            {notice.isNew && (
+                              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-secondary text-primary uppercase tracking-wider animate-pulse">New</span>
+                            )}
+                          </div>
+                          <h3 class="text-sm md:text-base font-medium text-dark group-hover:text-primary transition-colors leading-snug">
+                            {notice.link
+                              ? <a href={notice.link} class="hover:underline" {...(notice.link.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{notice.title}</a>
+                              : notice.title
+                            }
+                          </h3>
+                        </div>
+
+                        <!-- Download link -->
+                        {notice.link && (
+                          <a
+                            href={notice.link}
+                            class="shrink-0 flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-secondary border border-primary/30 hover:border-secondary px-3 py-2 rounded-lg transition-colors"
+                            {...(notice.link.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                          >
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                            </svg>
+                            View
+                          </a>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </div>
-            <button class="text-primary hover:text-secondary font-medium text-sm flex items-center self-start md:self-auto transition-colors">
-              <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-              Download PDF
-            </button>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
+
+        <!-- ======= SIDEBAR ======= -->
+        <aside class="w-full lg:w-72 shrink-0">
+          <!-- Quick Links -->
+          <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden mb-6 sticky top-6">
+            <div class="bg-primary px-5 py-4">
+              <h2 class="text-white font-bold text-base">Quick Links</h2>
+            </div>
+            <ul class="divide-y divide-gray-100">
+              <li>
+                <a href="/fee-payment" class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-dark hover:text-primary hover:bg-blue-50 transition-colors group">
+                  <svg class="w-4 h-4 text-secondary group-hover:text-primary transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  </svg>
+                  Fee Payment Portal
+                </a>
+              </li>
+              <li>
+                <a href="https://cbse.gov.in" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-dark hover:text-primary hover:bg-blue-50 transition-colors group">
+                  <svg class="w-4 h-4 text-secondary group-hover:text-primary transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                  CBSE Official Website ↗
+                </a>
+              </li>
+              <li>
+                <a href="/admission" class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-dark hover:text-primary hover:bg-blue-50 transition-colors group">
+                  <svg class="w-4 h-4 text-secondary group-hover:text-primary transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-3-3v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  Admission Information
+                </a>
+              </li>
+              <li>
+                <a href="/admission#form" class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-dark hover:text-primary hover:bg-blue-50 transition-colors group">
+                  <svg class="w-4 h-4 text-secondary group-hover:text-primary transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                  Download Admission Form
+                </a>
+              </li>
+              <li>
+                <a href="/mpd" class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-dark hover:text-primary hover:bg-blue-50 transition-colors group">
+                  <svg class="w-4 h-4 text-secondary group-hover:text-primary transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                  </svg>
+                  Mandatory Public Disclosure
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Notice Archive Summary -->
+          <div class="bg-gradient-to-br from-primary to-blue-900 rounded-xl p-5 text-white">
+            <h3 class="font-bold text-base mb-3">Notice Archive</h3>
+            <p class="text-blue-100 text-sm mb-4">Browse all our historical notices and circulars. Contact the school office for older records.</p>
+            <a href="mailto:afschoolavadi@gmail.com" class="inline-block bg-secondary text-primary font-bold text-sm px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors">
+              Contact School Office
+            </a>
+          </div>
+        </aside>
+
+      </div>
     </div>
   </section>
 </Layout>
+
+<script>
+  // ---- Category Filter ----
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.cat-tab');
+  const items = document.querySelectorAll<HTMLLIElement>('.notice-item');
+  const yearGroups = document.querySelectorAll<HTMLDivElement>('.year-group');
+  const searchInput = document.getElementById('noticeSearch') as HTMLInputElement;
+  const noResults = document.getElementById('noResults') as HTMLDivElement;
+
+  let activeCat = 'all';
+  let searchQuery = '';
+
+  function applyFilters() {
+    let visibleCount = 0;
+
+    yearGroups.forEach((group) => {
+      let groupVisible = 0;
+      const groupItems = group.querySelectorAll<HTMLLIElement>('.notice-item');
+      groupItems.forEach((item) => {
+        const cat = item.dataset.cat ?? '';
+        const title = item.dataset.title ?? '';
+        const catMatch = activeCat === 'all' || cat === activeCat;
+        const searchMatch = !searchQuery || title.includes(searchQuery);
+        if (catMatch && searchMatch) {
+          item.style.display = '';
+          groupVisible++;
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+      group.style.display = groupVisible > 0 ? '' : 'none';
+    });
+
+    noResults.classList.toggle('hidden', visibleCount > 0);
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      activeCat = tab.dataset.cat ?? 'all';
+      tabs.forEach((t) => {
+        t.classList.remove('active-tab', 'bg-primary', 'text-white');
+        t.classList.add('bg-white', 'border', 'border-gray-300', 'text-gray-700');
+      });
+      tab.classList.add('active-tab', 'bg-primary', 'text-white');
+      tab.classList.remove('bg-white', 'border', 'border-gray-300', 'text-gray-700');
+      applyFilters();
+    });
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
+    applyFilters();
+  });
+</script>
