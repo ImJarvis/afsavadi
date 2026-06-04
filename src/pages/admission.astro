@@ -10,6 +10,46 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
 
+  {/* Class XI Admissions Open Banner */}
+  <section id="class-xi" class="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-gradient-to-r from-secondary to-amber-400 rounded-xl shadow-lg px-6 py-8 md:px-10 flex flex-col md:flex-row items-center gap-6 border-4 border-amber-300">
+      <div class="flex-1">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+          <span class="text-primary text-xs font-extrabold uppercase tracking-widest">Now Open</span>
+        </div>
+        <h2 class="text-2xl md:text-3xl font-extrabold text-primary uppercase tracking-tight leading-tight mb-1">
+          Admissions Open for Class XI
+        </h2>
+        <p class="text-primary font-medium opacity-80">
+          Applications accepted for Class XI Science / Commerce streams. Limited seats available — apply early.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
+        <a
+          href="https://afschoolavadi.com/Documents/STUDENT%20ADMISSION%20FORM.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center bg-primary hover:bg-blue-900 text-white font-bold uppercase text-sm px-5 py-3 rounded-lg shadow-md hover:shadow-lg transition-all group"
+        >
+          <svg class="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+          </svg>
+          Download Application Form
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-primary font-bold uppercase text-sm px-5 py-3 rounded-lg shadow-md hover:shadow-lg transition-all border-2 border-primary group"
+        >
+          <svg class="w-4 h-4 mr-2 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          Contact Admissions Office
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     {/* Admission Notice Banner */}
@@ -30,6 +70,41 @@ import Layout from '../layouts/Layout.astro';
              </a>
           </div>
         </div>
+      </div>
+    </div>
+
+    {/* Age Criteria Table */}
+    <div class="mb-12 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+      <div class="bg-primary text-white p-4">
+        <h2 class="text-xl font-bold uppercase tracking-wide">Age Criteria for Admission</h2>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-100 text-primary uppercase text-xs tracking-wide border-b-2 border-gray-300">
+              <th class="p-3 text-left">Class</th>
+              <th class="p-3 text-left">Age Requirement (as on 31st March)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr class="hover:bg-blue-50 transition-colors">
+              <td class="p-3 font-bold text-primary">Pre-KG</td>
+              <td class="p-3 text-gray-700">Must have completed <strong>3 years</strong> of age</td>
+            </tr>
+            <tr class="hover:bg-blue-50 transition-colors">
+              <td class="p-3 font-bold text-primary">LKG</td>
+              <td class="p-3 text-gray-700">Must have completed <strong>4 years</strong> of age</td>
+            </tr>
+            <tr class="hover:bg-blue-50 transition-colors">
+              <td class="p-3 font-bold text-primary">Class I</td>
+              <td class="p-3 text-gray-700">Must have completed <strong>6 years</strong> of age</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="p-4 bg-yellow-50 border-t border-yellow-200 text-sm text-gray-700 space-y-1">
+        <p>&#9432; UKG students must seek <strong>fresh admission</strong> to Class I — automatic promotion is not applicable.</p>
+        <p>&#9432; Academic Session runs from <strong>1 April to 31 March</strong>. All fees are to be paid in advance.</p>
       </div>
     </div>
 
@@ -106,7 +181,7 @@ import Layout from '../layouts/Layout.astro';
     {/* TC Information Section */}
     <div class="mt-8 bg-white border border-gray-200 p-8 rounded-lg shadow-sm">
       <h2 class="text-2xl font-bold text-primary mb-6 border-b-2 border-secondary pb-2 uppercase inline-block">Transfer Certificate (TC)</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <div>
           <p class="text-gray-700 mb-4 leading-relaxed text-justify">
             Parents seeking a Transfer Certificate for their ward must submit a written application to the Principal at least one month in advance. The TC will be issued only after all dues have been cleared.
@@ -114,6 +189,12 @@ import Layout from '../layouts/Layout.astro';
           <p class="text-gray-700 leading-relaxed text-justify">
             Below is the standard format for the Transfer Certificate issued by the school, and an example of a completed certificate for reference.
           </p>
+          <h3 class="text-lg font-bold text-primary mt-5 mb-3 uppercase">TC Rules</h3>
+          <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-700">
+            <li>TC will be issued <strong>only after all dues are cleared</strong> and all library books are returned.</li>
+            <li>TC will be issued only <strong>7 working days</strong> after the application is submitted.</li>
+            <li>Students withdrawing at the end of a session must <strong>apply for TC in January</strong>.</li>
+          </ol>
         </div>
         <div class="grid grid-cols-2 gap-4">
           <a href="/images/TC_Format.jpg" target="_blank" class="block group border border-gray-200 rounded p-2 hover:border-primary transition-colors text-center">
@@ -126,6 +207,26 @@ import Layout from '../layouts/Layout.astro';
           </a>
         </div>
       </div>
+    </div>
+
+    {/* Caution Money Refund */}
+    <div class="mt-8 bg-white border border-gray-200 p-8 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold text-primary mb-4 border-b-2 border-secondary pb-2 uppercase inline-block">Caution Money Refund</h2>
+      <ol class="list-decimal pl-5 space-y-2 text-sm text-gray-700">
+        <li>The <strong>original receipt</strong> must be produced at the time of claiming the caution money refund.</li>
+        <li>The amount must be collected <strong>within one month</strong> after the TC is issued. After this period, the amount will be <strong>forfeited</strong>.</li>
+      </ol>
+    </div>
+
+    {/* General Rules */}
+    <div class="mt-8 bg-white border border-gray-200 p-8 rounded-lg shadow-sm">
+      <h2 class="text-2xl font-bold text-primary mb-4 border-b-2 border-secondary pb-2 uppercase inline-block">General Rules</h2>
+      <ol class="list-decimal pl-5 space-y-3 text-sm text-gray-700">
+        <li>Students are responsible for their <strong>behaviour both inside and outside</strong> the school premises.</li>
+        <li>A minimum of <strong>80% attendance</strong> is required to be eligible for Annual Examinations. A medical certificate must be produced in case of illness-related absences.</li>
+        <li>Students who fail consecutively <strong>twice in the same class</strong> may be asked to leave the school.</li>
+        <li>Expulsion may follow instances of disobedience, mischief, or <strong>examination malpractices</strong>.</li>
+      </ol>
     </div>
 
   </section>

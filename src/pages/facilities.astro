@@ -1,5 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const bandInstruments = [
+  { name: 'Morocco', icon: '🥁' },
+  { name: 'Harmonium', icon: '🎹' },
+  { name: 'Keyboard', icon: '🎵' },
+  { name: 'Tabla', icon: '🪘' },
+  { name: 'Triple Bango', icon: '🎶' },
+];
 ---
 
 <Layout title="Facilities & Infrastructure">
@@ -15,8 +23,36 @@ import Layout from '../layouts/Layout.astro';
       Air Force School Avadi boasts a well-maintained 1.92-acre campus equipped with modern facilities designed to provide a comprehensive learning and developmental environment for our students.
     </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
+    {/* ── Teaching Aids ─────────────────────────────────── */}
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-2 uppercase">Teaching Aids</h2>
+      <div class="w-16 h-1 bg-secondary mb-8"></div>
+      <div class="bg-white rounded-xl shadow-md border border-gray-200 p-8">
+        <p class="text-gray-700 leading-relaxed mb-6">
+          All classrooms are equipped for interactive learning. Our teaching aids include a rich variety of modern and traditional learning tools to cater to every learning style.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {[
+            { icon: '🧸', label: 'Montessori Equipment' },
+            { icon: '📊', label: 'Charts & Flashcards' },
+            { icon: '📺', label: 'Television' },
+            { icon: '💿', label: 'DVD Players' },
+            { icon: '📽️', label: 'LCD Projectors' },
+            { icon: '💻', label: 'Computers' },
+            { icon: '🖥️', label: 'Smart Boards' },
+          ].map(item => (
+            <div class="flex items-center gap-3 bg-blue-50 border border-blue-100 rounded-lg px-4 py-3">
+              <span class="text-2xl">{item.icon}</span>
+              <span class="text-sm font-semibold text-primary">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* ── Main Facilities Grid ──────────────────────────── */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
       {/* Library */}
       <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
         <div class="h-56 bg-gray-200 relative overflow-hidden">
@@ -25,11 +61,27 @@ import Layout from '../layouts/Layout.astro';
         <div class="p-6">
           <h3 class="text-xl font-bold text-primary mb-2 uppercase">Well-Stocked Library</h3>
           <div class="w-12 h-1 bg-secondary mb-3"></div>
-          <p class="text-gray-600 text-sm leading-relaxed">Spanning 75 Sq. mtrs, our library houses over 4,200 books, periodicals, and reference materials to cultivate a strong reading habit.</p>
+          <p class="text-gray-600 text-sm leading-relaxed mb-4">
+            Spanning 75 Sq. mtrs, our library houses a wide collection of books, periodicals, and reference materials to cultivate a strong reading habit.
+          </p>
+          <div class="grid grid-cols-2 gap-2">
+            {[
+              { label: 'Total Books', value: '4,181' },
+              { label: 'Reference Books', value: '95' },
+              { label: 'Periodicals', value: '3' },
+              { label: 'Daily Newspapers', value: '3' },
+              { label: 'Magazines', value: '3' },
+            ].map(stat => (
+              <div class="bg-blue-50 rounded p-2 text-center">
+                <div class="text-primary font-extrabold text-lg">{stat.value}</div>
+                <div class="text-gray-500 text-xs">{stat.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Sports */}
+      {/* Sports & Playground */}
       <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
         <div class="h-56 bg-gray-200 relative overflow-hidden">
           <img src="/Infrastructure/Infra25/Physical Education/sports meet.jpg" alt="Sports Facilities" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='/images/header.jpg'" />
@@ -41,31 +93,21 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </div>
 
-      {/* Labs */}
+      {/* Computer Lab */}
       <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
         <div class="h-56 bg-gray-200 relative overflow-hidden">
           <img src="/Infrastructure/Infra25/Computer Lab/20240731_085011.jpg" alt="Computer Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='/images/header.jpg'" />
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-bold text-primary mb-2 uppercase">Modern Laboratories</h3>
+          <h3 class="text-xl font-bold text-primary mb-2 uppercase">Computer Lab</h3>
           <div class="w-12 h-1 bg-secondary mb-3"></div>
-          <p class="text-gray-600 text-sm leading-relaxed">Equipped Computer and Science laboratories provide hands-on practical experience aligned with the CBSE curriculum.</p>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            40 computers with latest configuration. School recognised as <strong class="text-primary">Best AF School in the command</strong> for its technology infrastructure.
+          </p>
         </div>
       </div>
 
-      {/* Co-curricular */}
-      <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
-        <div class="h-56 bg-gray-200 relative overflow-hidden">
-          <img src="/Infrastructure/Infra25/School Band/DSC_3676.JPG" alt="School Band" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='/images/header.jpg'" />
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-primary mb-2 uppercase">School Band</h3>
-          <div class="w-12 h-1 bg-secondary mb-3"></div>
-          <p class="text-gray-600 text-sm leading-relaxed">Dedicated spaces for Music, Indoor Games, NCC, Scouts & Guides, and the official School Band.</p>
-        </div>
-      </div>
-
-      {/* NCC */}
+      {/* NCC & Scouts */}
       <div class="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden group">
         <div class="h-56 bg-gray-200 relative overflow-hidden">
           <img src="/Infrastructure/Infra25/NCC_Scouts and Guides/IMG-20231110-WA0014.jpg" alt="NCC" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='/images/header.jpg'" />
@@ -78,5 +120,141 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
     </div>
+
+    {/* ── Science Labs ─────────────────────────────────── */}
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-2 uppercase">Science Laboratories</h2>
+      <div class="w-16 h-1 bg-secondary mb-8"></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden group">
+          <div class="h-48 bg-gray-200 relative overflow-hidden">
+            <img src="/Infrastructure/Infra25/Computer Lab/20240731_085011.jpg" alt="ATAL Tinkering Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='/images/header.jpg'" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-primary mb-2 uppercase">ATAL Tinkering Laboratory</h3>
+            <div class="w-12 h-1 bg-secondary mb-3"></div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              ATAL Tinkering Laboratory (combined with Physics Lab) for Secondary and Senior Secondary students. Fosters innovation, design thinking, and hands-on STEM exploration.
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden group">
+          <div class="h-48 bg-gray-200 relative overflow-hidden">
+            <img src="/Infrastructure/Infra25/Computer Lab/20240731_085011.jpg" alt="Chemistry Lab" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onerror="this.src='/images/header.jpg'" />
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-primary mb-2 uppercase">Chemistry Laboratory</h3>
+            <div class="w-12 h-1 bg-secondary mb-3"></div>
+            <p class="text-gray-600 text-sm leading-relaxed">
+              Chemistry Lab fully equipped with all required provisions and chemicals for the CBSE practical curriculum. Ensures students gain thorough experimental experience.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    {/* ── Physical Education ───────────────────────────── */}
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-2 uppercase">Physical Education</h2>
+      <div class="w-16 h-1 bg-secondary mb-8"></div>
+      <div class="bg-white rounded-xl shadow-md border border-gray-200 p-8 flex flex-col md:flex-row gap-8 items-center">
+        <div class="md:w-1/3 h-48 rounded-lg overflow-hidden shrink-0 w-full">
+          <img src="/Infrastructure/Infra25/Physical Education/sports meet.jpg" alt="Physical Education" class="w-full h-full object-cover" onerror="this.src='/images/header.jpg'" />
+        </div>
+        <div>
+          <p class="text-gray-700 leading-relaxed mb-4">
+            Special coaching is provided for team games, nurturing both individual talent and team spirit. Our students actively participate in <strong class="text-primary">Inter-School Sports Meets</strong> and <strong class="text-primary">Command Level Tournaments</strong>, representing the school with distinction.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            {['Inter-School Sports Meets', 'Command Level Tournaments', 'Team Game Coaching', 'Athletic Development'].map(tag => (
+              <span class="bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* ── School Band ──────────────────────────────────── */}
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-2 uppercase">School Band</h2>
+      <div class="w-16 h-1 bg-secondary mb-8"></div>
+      <div class="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+        <div class="h-64 relative overflow-hidden">
+          <img src="/Infrastructure/Infra25/School Band/DSC_3676.JPG" alt="School Band" class="w-full h-full object-cover" onerror="this.src='/images/header.jpg'" />
+          <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-6">
+            <p class="text-white font-semibold text-lg">Our school band performs at all major school events and parades.</p>
+          </div>
+        </div>
+        <div class="p-8">
+          <p class="text-gray-700 mb-6 leading-relaxed">The school band is a source of pride and an important part of school culture, performing at ceremonies, parades, and special events throughout the year.</p>
+          <h4 class="text-sm font-bold text-primary uppercase tracking-wide mb-4">Instruments in Our Band</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {bandInstruments.map(instr => (
+              <div class="bg-gradient-to-br from-primary to-blue-800 text-white rounded-xl p-5 text-center shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                <div class="text-4xl mb-2">{instr.icon}</div>
+                <div class="text-sm font-bold tracking-wide">{instr.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* ── RSP (Road Safety Patrol) ─────────────────────── */}
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-2 uppercase">Road Safety Patrol (RSP)</h2>
+      <div class="w-16 h-1 bg-secondary mb-8"></div>
+      <div class="bg-white rounded-xl shadow-md border border-gray-200 p-8">
+        <div class="flex flex-col md:flex-row gap-8 items-start">
+          <div class="bg-secondary/10 border border-secondary/30 rounded-xl p-6 shrink-0 text-center w-full md:w-48">
+            <div class="text-6xl mb-3">🚦</div>
+            <div class="text-primary font-extrabold text-xl uppercase">RSP</div>
+            <div class="text-gray-500 text-xs mt-1">Road Safety Patrol</div>
+          </div>
+          <div>
+            <p class="text-gray-700 leading-relaxed mb-4">
+              The Road Safety Patrol (RSP) unit at Air Force School Avadi actively <strong class="text-primary">creates awareness about traffic rules and road safety</strong> among students and the wider community.
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-6">
+              Participation in the RSP programme <strong class="text-primary">instils discipline, civic responsibility, and leadership</strong> in students, preparing them to be responsible citizens who contribute positively to society.
+            </p>
+            <div class="flex flex-wrap gap-3">
+              {['Traffic Awareness', 'Civic Responsibility', 'Discipline', 'Student Leadership'].map(tag => (
+                <span class="bg-secondary text-primary text-xs font-bold px-3 py-1 rounded-full">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* ── Activity Room (Junior Wing) ──────────────────── */}
+    <div class="mb-16">
+      <h2 class="text-3xl font-bold text-primary mb-2 uppercase">Activity Room <span class="text-secondary">(Junior Wing)</span></h2>
+      <div class="w-16 h-1 bg-secondary mb-8"></div>
+      <div class="bg-white rounded-xl shadow-md border border-gray-200 p-8">
+        <p class="text-gray-700 leading-relaxed mb-6">
+          Our dedicated Activity Room for the Junior Wing supports early childhood development through a nurturing and stimulating environment. It is specially designed to encourage exploration, creativity, and collaborative play.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {[
+            { icon: '🧩', label: 'Play Items' },
+            { icon: '📚', label: 'Learning Aids' },
+            { icon: '🎬', label: 'Mini-Theatre' },
+            { icon: '🏠', label: 'Play Room' },
+            { icon: '🏖️', label: 'Sand-Pit' },
+          ].map(item => (
+            <div class="bg-gradient-to-br from-secondary/20 to-yellow-50 border border-secondary/30 rounded-xl p-5 text-center hover:-translate-y-1 transition-transform duration-300">
+              <div class="text-4xl mb-2">{item.icon}</div>
+              <div class="text-primary font-bold text-sm">{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
   </section>
 </Layout>

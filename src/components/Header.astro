@@ -2,6 +2,38 @@
 // Header Component
 ---
 <header class="w-full bg-white shadow-md z-50 sticky top-0">
+
+  {/* Announcement Bar */}
+  <div class="bg-amber-600 py-1.5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+      {/* Left: Info Links */}
+      <div class="flex items-center space-x-4 text-xs text-white">
+        <a href="/neet-coaching" class="flex items-center hover:text-amber-200 transition-colors font-medium">
+          <svg class="w-3.5 h-3.5 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          NEET &amp; JEE Preparation
+        </a>
+        <span class="text-amber-300 hidden sm:inline">|</span>
+        <a href="/admission#class-xi" class="hidden sm:flex items-center hover:text-amber-200 transition-colors font-medium">
+          <svg class="w-3.5 h-3.5 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+          <span class="text-amber-200 font-bold animate-pulse mr-1">★</span> Admissions Open for Class XI
+        </a>
+      </div>
+      {/* Right: Action Buttons */}
+      <div class="flex items-center space-x-2">
+        <a href="https://chaloschools.in/web/webportal/#/sign-in" target="_blank" rel="noopener noreferrer"
+           class="bg-white text-amber-700 hover:bg-amber-100 font-semibold text-xs px-3 py-1 rounded-full transition-colors flex items-center">
+          <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+          Online Payment
+        </a>
+        <a href="https://afschoolavadi.com/Documents/STUDENT%20ADMISSION%20FORM.pdf" target="_blank" rel="noopener noreferrer"
+           class="bg-amber-800 text-white hover:bg-amber-900 font-semibold text-xs px-3 py-1 rounded-full transition-colors flex items-center">
+          <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Admission Form
+        </a>
+      </div>
+    </div>
+  </div>
+
   
   {/* Tier 1: Utility Bar (Light Gray) */}
   <div class="bg-gray-100 py-1 border-b border-gray-200">
@@ -28,7 +60,7 @@
       <div class="flex items-center space-x-3 md:space-x-5">
         <a href="/" class="flex-shrink-0">
           <div class="w-16 h-16 md:w-20 md:h-20 bg-white rounded-full border-2 border-secondary flex items-center justify-center overflow-hidden shadow-md flex-shrink-0">
-            <img src="/images/logo.jpg" alt="Air Force School Avadi Crest" class="w-full h-full object-contain p-1" />
+            <img src="/images/logo.png" alt="Air Force School Avadi Crest" class="w-full h-full object-contain p-1" />
           </div>
         </a>
         
@@ -44,8 +76,8 @@
 
       {/* CBSE Logo - Hidden on very small screens */}
       <div class="hidden md:block flex-shrink-0">
-         <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-gray-200 flex items-center justify-center bg-white shadow-sm p-1">
-           <img src="/images/logo.jpg" alt="CBSE Affiliated" class="w-full h-full object-contain" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2245%22%20fill%3D%22none%22%20stroke%3D%22%23ccc%22%20stroke-width%3D%222%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20font-size%3D%2224%22%20fill%3D%22%23999%22%3ECBSE%3C%2Ftext%3E%3C%2Fsvg%3E'" />
+         <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border border-gray-200 flex items-center justify-center bg-white shadow-sm">
+           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="w-full h-full p-1"><circle cx="50" cy="50" r="45" fill="none" stroke="#083a6b" stroke-width="3"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="22" font-weight="bold" fill="#083a6b">CBSE</text></svg>
          </div>
       </div>
 
@@ -90,6 +122,7 @@
             <a href="/academics#calendar" class="block px-4 py-3 text-sm text-primary hover:bg-blue-50 border-l-4 border-transparent hover:border-secondary transition-all">Academic Calendar</a>
             <a href="/academics#papers" class="block px-4 py-3 text-sm text-primary hover:bg-blue-50 border-l-4 border-transparent hover:border-secondary transition-all">Sample Question Papers</a>
             <a href="/achievements#results" class="block px-4 py-3 text-sm text-primary hover:bg-blue-50 border-l-4 border-transparent hover:border-secondary transition-all">Board Results</a>
+            <a href="/neet-coaching" class="block px-4 py-3 text-sm text-primary hover:bg-blue-50 border-l-4 border-transparent hover:border-secondary transition-all">NEET &amp; JEE Coaching</a>
           </div>
         </div>
 
@@ -123,6 +156,7 @@
         <a href="/academics#calendar" class="text-gray-200 hover:text-white block px-3 py-1.5 text-sm">Academic Calendar</a>
         <a href="/academics#papers" class="text-gray-200 hover:text-white block px-3 py-1.5 text-sm">Sample Question Papers</a>
         <a href="/achievements#results" class="text-gray-200 hover:text-white block px-3 py-1.5 text-sm">Board Results</a>
+        <a href="/neet-coaching" class="text-gray-200 hover:text-white block px-3 py-1.5 text-sm">NEET &amp; JEE Coaching</a>
       </div>
 
       <a href="/admission" class="text-white hover:bg-primary-dark hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Admission</a>

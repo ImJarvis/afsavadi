@@ -13,6 +13,27 @@ import Breadcrumb from '../components/Breadcrumb.astro';
 
   <Breadcrumb items={[{ label: 'Academics' }]} />
 
+  {/* Medium of Instruction Card */}
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+    <div class="bg-white shadow-sm rounded-lg border-l-4 border-secondary p-6">
+      <h2 class="text-2xl font-bold text-primary mb-4 uppercase">Medium of Instruction</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-700 text-sm leading-relaxed">
+        <ul class="space-y-2">
+          <li><span class="font-semibold text-primary">Medium:</span> English is the medium of instruction.</li>
+          <li><span class="font-semibold text-primary">Hindi:</span> Compulsory from LKG to Class X.</li>
+          <li><span class="font-semibold text-primary">Sanskrit:</span> Introduced from Class VI onwards.</li>
+        </ul>
+        <ul class="space-y-2">
+          <li><span class="font-semibold text-primary">Syllabus:</span> KG — as per Air HQ Direction; Class I–XII — CBSE guidelines.</li>
+          <li><span class="font-semibold text-primary">Books:</span> KG–VIII — prescribed by Air HQ; Class IX–XII — prescribed by CBSE.</li>
+        </ul>
+      </div>
+      <div class="mt-4 bg-yellow-50 border border-yellow-200 rounded p-3 text-sm text-gray-700">
+        <strong class="text-secondary">&#9432; Note:</strong> Class XI &amp; XII is a <strong>composite course</strong>. Students who take admission to Class XI must continue with the <strong>same subject combination in Class XII</strong>.
+      </div>
+    </div>
+  </section>
+
   <section class="py-12 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
       
@@ -45,36 +66,96 @@ import Breadcrumb from '../components/Breadcrumb.astro';
         </div>
 
         <div>
-          <h2 class="text-3xl font-bold text-primary mb-6 border-b-2 border-secondary pb-2 inline-block uppercase">Senior Secondary Streams</h2>
-          <p class="mb-6 leading-relaxed">For Classes XI and XII, the school offers the following specialized streams:</p>
-          
+          <h2 class="text-3xl font-bold text-primary mb-6 border-b-2 border-secondary pb-2 inline-block uppercase">Senior Secondary Streams &amp; Subject Combinations</h2>
+          <p class="mb-6 leading-relaxed">For Classes XI and XII, the school offers the following specialized streams. The table below shows the subject combinations along with internal assessment subjects.</p>
+
+          <div class="overflow-x-auto rounded-lg shadow-sm border border-gray-200 mb-6">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="bg-primary text-white uppercase text-xs tracking-wide">
+                  <th class="p-3 text-left">Stream</th>
+                  <th class="p-3 text-left">Elective Subjects</th>
+                  <th class="p-3 text-left">Internal Assessment</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-100">
+                <tr class="hover:bg-blue-50 transition-colors">
+                  <td class="p-3 font-bold text-primary align-top">Science</td>
+                  <td class="p-3 text-gray-700 align-top">
+                    <ul class="list-disc pl-4 space-y-1">
+                      <li>English Core</li>
+                      <li>Physics</li>
+                      <li>Chemistry</li>
+                      <li>Mathematics <span class="text-secondary font-semibold">OR</span> Biology <span class="text-gray-500">(or)</span> Informatics Practices</li>
+                      <li>Computer Science / Physical Education</li>
+                    </ul>
+                  </td>
+                  <td class="p-3 text-gray-700 align-top" rowspan="2">
+                    <ul class="list-disc pl-4 space-y-1">
+                      <li>Work Experience</li>
+                      <li>Health and Physical Education</li>
+                      <li>General Studies</li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr class="hover:bg-yellow-50 transition-colors">
+                  <td class="p-3 font-bold text-primary align-top">Commerce</td>
+                  <td class="p-3 text-gray-700 align-top">
+                    <ul class="list-disc pl-4 space-y-1">
+                      <li>English Core</li>
+                      <li>Accountancy</li>
+                      <li>Business Studies</li>
+                      <li>Economics</li>
+                      <li>Informatics Practices / Mathematics</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Academic Activities Section */}
+        <div>
+          <h2 class="text-3xl font-bold text-primary mb-6 border-b-2 border-secondary pb-2 inline-block uppercase">Academic Activities</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-blue-50 border border-blue-200 p-6 rounded-lg shadow-sm">
-              <h3 class="text-xl font-bold text-primary mb-3 uppercase flex items-center">
-                 <svg class="w-6 h-6 mr-2 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                 Science Stream
-              </h3>
-              <ul class="list-disc pl-5 space-y-2 text-dark font-medium">
-                <li>English Core</li>
-                <li>Physics</li>
-                <li>Chemistry</li>
-                <li>Mathematics / Biology</li>
-                <li>Computer Science / Physical Education</li>
-              </ul>
+            {/* Senior Wing */}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+              <div class="bg-primary text-white p-4">
+                <h3 class="text-lg font-bold uppercase tracking-wide">Senior Wing Activities</h3>
+              </div>
+              <div class="p-5 text-sm text-gray-700">
+                <p class="mb-4 leading-relaxed">Syllabus is divided into units and taught with modern teaching aids. Regular unit tests are conducted to assess student progress.</p>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Orientation Programme</li>
+                  <li>Group Discussion</li>
+                  <li>Activity Based Learning</li>
+                  <li>Group Study</li>
+                  <li>Play Way Method</li>
+                  <li>Seminar</li>
+                  <li>Science Exhibition</li>
+                </ul>
+              </div>
             </div>
-            
-            <div class="bg-yellow-50 border border-yellow-200 p-6 rounded-lg shadow-sm">
-              <h3 class="text-xl font-bold text-primary mb-3 uppercase flex items-center">
-                 <svg class="w-6 h-6 mr-2 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                 Commerce Stream
-              </h3>
-              <ul class="list-disc pl-5 space-y-2 text-dark font-medium">
-                <li>English Core</li>
-                <li>Accountancy</li>
-                <li>Business Studies</li>
-                <li>Economics</li>
-                <li>Informatics Practices / Mathematics</li>
-              </ul>
+            {/* Junior Wing */}
+            <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+              <div class="bg-secondary text-primary p-4">
+                <h3 class="text-lg font-bold uppercase tracking-wide">Junior Wing Activities</h3>
+              </div>
+              <div class="p-5 text-sm text-gray-700">
+                <p class="mb-4 leading-relaxed">A child-friendly environment with value-based education through theme-based activities nurtures creativity and joy of learning.</p>
+                <ul class="list-disc pl-5 space-y-1">
+                  <li>Fruit Day / Vegetable Day</li>
+                  <li>Colour Day</li>
+                  <li>Fancy Dress</li>
+                  <li>Cooking Without Fire</li>
+                  <li>Quiz &amp; Debate</li>
+                  <li>Rangoli Making</li>
+                  <li>Origami</li>
+                  <li>Pencil Sketch</li>
+                  <li>Festival Celebrations</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -91,6 +172,18 @@ import Breadcrumb from '../components/Breadcrumb.astro';
               <p class="text-sm mb-4">Access our repository of model question papers and past board exam papers to help students prepare effectively for their upcoming assessments.</p>
               <a href="/images/QuestionPaper_Model.jpg" target="_blank" class="inline-block bg-primary text-white font-bold py-2 px-6 rounded hover:bg-primary-dark transition-colors text-sm uppercase">View Model Papers</a>
             </div>
+          </div>
+        </div>
+
+        {/* News in Education & Virtual Classroom */}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white border-l-4 border-secondary rounded-lg shadow-sm p-5">
+            <h3 class="text-lg font-bold text-primary mb-2 uppercase">News in Education</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">The school is associated with the <strong>Times of India — Student Edition</strong> to develop reading habits and general awareness among students through regular newspaper engagement.</p>
+          </div>
+          <div class="bg-white border-l-4 border-primary rounded-lg shadow-sm p-5">
+            <h3 class="text-lg font-bold text-primary mb-2 uppercase">Virtual Classroom</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">The school is equipped with <strong>Smart Boards</strong> and <strong>E-Learning infrastructure</strong> in every classroom, enabling interactive and engaging digital education for all students.</p>
           </div>
         </div>
 
