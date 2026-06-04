@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 # OS Files
 Thumbs.db
+
+.vs/
