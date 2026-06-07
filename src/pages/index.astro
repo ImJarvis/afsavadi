@@ -30,22 +30,48 @@ try {
 ---
 
 <Layout title="Home">
+  {/* Announcements Ticker */}
+  <div class="bg-secondary text-primary font-bold py-2 px-4 shadow-md flex items-center border-b-2 border-primary relative z-20">
+    <div class="whitespace-nowrap mr-4 uppercase shrink-0 flex items-center relative z-20 bg-secondary pr-2">
+      <span class="w-3 h-3 bg-red-600 rounded-full animate-pulse mr-2"></span>
+      Latest News
+    </div>
+    <div class="overflow-hidden relative w-full flex">
+      <div class="whitespace-nowrap animate-marquee flex shrink-0 min-w-full justify-around">
+        <span class="mx-4 text-green-800">• Admission for Academic Year 2025-26 is now OPEN. Download the application form.</span>
+        <span class="mx-4 text-blue-800">• Class X and XII CBSE Results 2024-25 declared. Congratulations to all toppers!</span>
+        <span class="mx-4 text-red-800">• Fee payment through SBI Collect is active.</span>
+        <span class="mx-4 text-primary">• Mandatory disclosure is available in the about us section.</span>
+      </div>
+      <div class="whitespace-nowrap animate-marquee flex shrink-0 min-w-full justify-around" aria-hidden="true">
+        <span class="mx-4 text-green-800">• Admission for Academic Year 2025-26 is now OPEN. Download the application form.</span>
+        <span class="mx-4 text-blue-800">• Class X and XII CBSE Results 2024-25 declared. Congratulations to all toppers!</span>
+        <span class="mx-4 text-red-800">• Fee payment through SBI Collect is active.</span>
+        <span class="mx-4 text-primary">• Mandatory disclosure is available in the about us section.</span>
+      </div>
+    </div>
+  </div>
+
   {/* Hero Carousel Section */}
-  <section class="relative w-full h-[60vh] md:h-[75vh] bg-gray-900 overflow-hidden" id="hero-carousel">
-    <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000 z-10">
-      <img src="/images/HonepageFirstphoto.jpg" alt="Air Force School Campus" class="w-full h-full object-cover opacity-90" />
-    </div>
-    <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 z-0">
-      <img src="/images/Header1.jpg" alt="Air Force School Event" class="w-full h-full object-cover opacity-90 object-top" />
-    </div>
-    <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 z-0">
-      <img src="/Infrastructure/Infra25/School Building/1.jpg" onerror="this.src='/images/HonepageFirstphoto.jpg'" alt="Infrastructure" class="w-full h-full object-cover opacity-90" />
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary/40 to-transparent z-20"></div>
-    <div class="absolute bottom-0 left-0 w-full p-6 md:p-12 text-white z-30">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl md:text-5xl font-extrabold uppercase tracking-wide text-shadow-lg mb-2">Welcome to <span class="text-secondary">Air Force School</span> Avadi</h2>
-        <p class="text-lg md:text-xl font-medium max-w-3xl drop-shadow-md">Education helps us realise for what we are in this world, what type of society we wish to build and the most important qualities to learn, that is Sincerity, Integrity in life and Compassion for humanity. Education gives meaning to our personality and existence. It equips us with the power to meet any sort of challenge around us. The best education provided here should best help the human society.</p>
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 mb-8">
+    <div class="relative w-full h-[40vh] md:h-[55vh] bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border-4 border-white" id="hero-carousel">
+      <div class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-1000 z-10">
+        <img src="/images/HonepageFirstphoto.jpg" alt="Air Force School Campus" class="w-full h-full object-cover object-center opacity-90" />
+      </div>
+      <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 z-0">
+        <img src="/Infrastructure/Infra25/Infra (3).jpg" alt="Infrastructure" class="w-full h-full object-cover object-[center_20%] opacity-90" />
+      </div>
+      <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 z-0">
+        <img src="/Infrastructure/Infra25/Infra (4).jpg" alt="Infrastructure" class="w-full h-full object-cover object-[center_20%] opacity-90" />
+      </div>
+      <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 z-0">
+        <img src="/Infrastructure/Infra25/Infra (7).jpg" alt="Infrastructure" class="w-full h-full object-cover object-[center_20%] opacity-90" />
+      </div>
+      <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 z-0">
+        <img src="/Infrastructure/Infra25/Infra (11).jpg" alt="Infrastructure" class="w-full h-full object-cover object-[center_20%] opacity-90" />
+      </div>
+      <div class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-1000 z-0">
+        <img src="/images/Header1.jpg" alt="Air Force School Event" class="w-full h-full object-cover object-[center_20%] opacity-90" />
       </div>
     </div>
   </section>
@@ -64,23 +90,6 @@ try {
       }, 5000);
     });
   </script>
-
-  {/* Announcements Ticker */}
-  <div class="bg-secondary text-primary font-bold py-2 px-4 shadow-md flex items-center border-y-2 border-primary">
-    <div class="whitespace-nowrap mr-4 uppercase shrink-0 flex items-center">
-      <span class="w-3 h-3 bg-red-600 rounded-full animate-pulse mr-2"></span>
-      Latest News
-    </div>
-    <div class="overflow-hidden relative w-full">
-      <div class="inline-block whitespace-nowrap animate-marquee">
-        <span class="mx-4 text-green-800">• Admission for Academic Year 2025-26 is now OPEN. Download the application form.</span>
-        <span class="mx-4 text-blue-800">• Class X and XII CBSE Results 2024-25 declared. Congratulations to all toppers!</span>
-        <span class="mx-4 text-red-800">• Fee payment through SBI Collect is active.</span>
-        <span class="mx-4 text-primary">• Mandatory disclosure is available in the about us section.</span>
-        <span class="mx-4 text-green-800">• Admission for Academic Year 2025-26 is now OPEN. Download the application form.</span>
-      </div>
-    </div>
-  </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
     
@@ -186,27 +195,6 @@ try {
       </div>
     </div>
 
-    {/* Quick Links Section */}
-    <div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <a href="/admission" class="bg-primary hover:bg-primary-dark text-white p-6 rounded-lg shadow-md text-center transition-all transform hover:-translate-y-1 border-b-4 border-secondary">
-          <svg class="w-10 h-10 mx-auto mb-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
-          <span class="font-bold uppercase tracking-wider text-sm md:text-base">Admissions</span>
-        </a>
-        <a href="https://www.onlinesbi.sbi/sbicollect/icollecthome.htm" target="_blank" class="bg-primary hover:bg-primary-dark text-white p-6 rounded-lg shadow-md text-center transition-all transform hover:-translate-y-1 border-b-4 border-secondary">
-          <svg class="w-10 h-10 mx-auto mb-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-          <span class="font-bold uppercase tracking-wider text-sm md:text-base">Pay Fee</span>
-        </a>
-        <a href="/Documents/STUDENT ADMISSION FORM.pdf" target="_blank" class="bg-primary hover:bg-primary-dark text-white p-6 rounded-lg shadow-md text-center transition-all transform hover:-translate-y-1 border-b-4 border-secondary">
-          <svg class="w-10 h-10 mx-auto mb-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-          <span class="font-bold uppercase tracking-wider text-sm md:text-base">Downloads</span>
-        </a>
-        <a href="/contact" class="bg-primary hover:bg-primary-dark text-white p-6 rounded-lg shadow-md text-center transition-all transform hover:-translate-y-1 border-b-4 border-secondary">
-          <svg class="w-10 h-10 mx-auto mb-3 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-          <span class="font-bold uppercase tracking-wider text-sm md:text-base">Contact Us</span>
-        </a>
-      </div>
-    </div>
 
     {/* Toppers Showcase */}
     <div>
@@ -448,78 +436,7 @@ try {
 
   </div>
 
-  {/* Quick Links Section */}
-  <div class="bg-primary py-12 mt-4">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold text-white uppercase">Quick Links</h2>
-        <div class="w-24 h-1 bg-secondary mx-auto mt-2"></div>
-        <p class="text-white/70 mt-2 text-sm">Frequently accessed resources and portals</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <a href="/gallery#fit-india" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 group">
-          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <span class="text-white font-semibold text-sm">Fit India Activities</span>
-        </a>
-        <a href="/notices?cat=academic" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 group">
-          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-          </div>
-          <span class="text-white font-semibold text-sm">School Holidays 2025-26</span>
-        </a>
-        <a href="/notices?cat=general" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 group">
-          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <span class="text-white font-semibold text-sm">Career / Recruitment</span>
-        </a>
-        <a href="/academics#papers" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 group">
-          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <span class="text-white font-semibold text-sm">Previous Year Question Papers</span>
-        </a>
-        <a href="/mpd" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 group">
-          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-          </div>
-          <span class="text-white font-semibold text-sm">Mandatory Public Disclosure</span>
-        </a>
-        <a href="https://chaloschools.in/web/webportal/#/sign-in" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 group">
-          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-          </div>
-          <div>
-            <span class="text-white font-semibold text-sm">Online Fee Payment</span>
-            <span class="ml-2 text-xs bg-secondary text-primary font-bold px-1.5 py-0.5 rounded">Chalo Schools</span>
-          </div>
-        </a>
-        <a href="https://www.onlinesbi.com/sbicollect/icollecthome.htm?corpID=890789" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 group">
-          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-          </div>
-          <div>
-            <span class="text-white font-semibold text-sm">SBI Collect Payment</span>
-            <span class="ml-2 text-xs bg-secondary text-primary font-bold px-1.5 py-0.5 rounded">SBI</span>
-          </div>
-        </a>
-        <a href="/notices" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 group">
-          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-          </div>
-          <span class="text-white font-semibold text-sm">Jal Pakhwada / Water Conservation</span>
-        </a>
-        <a href="/notices" class="bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 group">
-          <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
-          </div>
-          <span class="text-white font-semibold text-sm">Transfer Certificate Format</span>
-        </a>
-      </div>
-    </div>
-  </div>
+
 
   <style>
     .animate-carousel {
